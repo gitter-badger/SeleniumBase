@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>SeleniumBase by mdmintz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">SeleniumBase</h1>
+      <h2 class="project-tagline">SeleniumBase Automation Framework</h2>
+      <a href="https://github.com/mdmintz/SeleniumBase" class="btn">View on GitHub</a>
+      <a href="https://github.com/mdmintz/SeleniumBase/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mdmintz/SeleniumBase/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h2>
+<a id="seleniumbase-automation-framework-" class="anchor" href="#seleniumbase-automation-framework-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SeleniumBase Automation Framework <a href="https://travis-ci.org/mdmintz/SeleniumBase"><img src="https://travis-ci.org/mdmintz/SeleniumBase.svg?branch=master" alt="Build Status"></a>
+</h2>
+
+<h3>
+<a id="an-open-source-solution-for-reliable-testing-and-business-automation" class="anchor" href="#an-open-source-solution-for-reliable-testing-and-business-automation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>An open-source solution for reliable testing and business automation.</h3>
+
+<h4>
+<a id="features-include" class="anchor" href="#features-include" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features include:</h4>
+
+<ul>
+<li>
+<a href="https://github.com/mdmintz/SeleniumBase/tree/master/seleniumbase/fixtures">Python wrappers</a> for WebDriver to quickly create <a href="https://github.com/mdmintz/SeleniumBase/blob/master/examples/my_first_test.py">reliable scripts</a> that run efficiently.</li>
+<li>Built-in <a href="https://github.com/mdmintz/SeleniumBase/tree/master/seleniumbase/plugins">Nosetest &amp; Pytest plugins</a> for logging <a href="https://github.com/mdmintz/SeleniumBase/tree/master/examples/logs_for_test_fail">test data, results, and screenshots</a>.</li>
+<li>Simple integration with <a href="http://jenkins-ci.org/">Jenkins</a>, <a href="http://docs.seleniumhq.org/projects/grid/">Selenium Grid</a>, <a href="http://www.mysql.com/">MySQL</a>, <a href="https://www.docker.com/">Docker</a>, and <a href="http://aws.amazon.com/">AWS</a>.</li>
+<li>Customizable with command-line options and a global config file: <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">settings.py</a>.</li>
+</ul>
+
+<p><em>Trusted by the world's most promising companies, including <a href="http://www.hubspot.com/">HubSpot</a>, <a href="http://jana.com/">Jana</a>, and <a href="http://www.veracode.com/">Veracode</a>. Learn how HubSpot uses SeleniumBase by reading: <a href="http://dev.hubspot.com/blog/bid/88880/Automated-Integration-Testing-with-Selenium-at-HubSpot">Automated Testing with Selenium</a>.</em></p>
+
+<h3>
+<a id="part-i-mac-setup-instructions" class="anchor" href="#part-i-mac-setup-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Part I: MAC SETUP INSTRUCTIONS</h3>
+
+<h4>
+<a id="windows-users-youll-need-to-make-a-few-modifications-to-the-setup-steps-listed-here-for-starters-you-wont-be-able-to-use-the-brew-install-command-since-thats-mac-only-instead-download-the-requirements-mentioned-directly-from-the-web-ill-provide-you-with-links-to-save-you-time-youll-also-want-to-put-downloaded-files-into-your-path" class="anchor" href="#windows-users-youll-need-to-make-a-few-modifications-to-the-setup-steps-listed-here-for-starters-you-wont-be-able-to-use-the-brew-install-command-since-thats-mac-only-instead-download-the-requirements-mentioned-directly-from-the-web-ill-provide-you-with-links-to-save-you-time-youll-also-want-to-put-downloaded-files-into-your-path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(WINDOWS users: You'll need to make a few modifications to the setup steps listed here. For starters, you won't be able to use the "brew install" command since that's MAC-only. Instead, download the requirements mentioned directly from the web. I'll provide you with links to save you time. You'll also want to put downloaded files into your <a href="http://java.com/en/download/help/path.xml">PATH</a>.)</h4>
+
+<h4>
+<a id="docker-users-if-you-want-to-run-browser-automation-with-docker-see-the-docker-readme" class="anchor" href="#docker-users-if-you-want-to-run-browser-automation-with-docker-see-the-docker-readme" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(DOCKER users: If you want to run browser automation with Docker, see the <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/docker/ReadMe.md">Docker ReadMe</a>)</h4>
+
+<h4>
+<a id="step-0-get-the-requirements" class="anchor" href="#step-0-get-the-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0:</strong> Get the requirements</h4>
+
+<h4>
+<a id="python-27" class="anchor" href="#python-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://www.python.org/downloads/">Python 2.7</a>
+</h4>
+
+<p>If you're a MAC user, that should already come preinstalled on your machine. Although Python 3 exists, you'll want Python 2 (both of these major versions are being improved in parallel). Python 2.7.10 is the one I've been using on my Mac.</p>
+
+<p>If you're a WINDOWS user, <a href="https://www.python.org/downloads/release/python-2710/">download the latest 2.* version from here</a>.</p>
+
+<h4>
+<a id="pip" class="anchor" href="#pip" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://en.wikipedia.org/wiki/Pip_%28package_manager%29">Pip</a>
+</h4>
+
+<p>If "pip" did not come with your Python installation, you can <a href="https://pip.pypa.io/en/latest/installing/">GET PIP HERE</a>.</p>
+
+<h4>
+<a id="homebrew--git-optional" class="anchor" href="#homebrew--git-optional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://brew.sh/">Homebrew</a> + <a href="http://git-scm.com/">Git</a> (OPTIONAL)</h4>
+
+<p>(NOTE: You can download the SeleniumBase repository right from GitHub and skip all the git-related commands. That's probably the fastest way if you want to quickly get a live demo of this tool up and running.)</p>
+
+<pre><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install git
+brew update
+</code></pre>
+
+<p>(WINDOWS users: Skip the Homebrew part and <a href="http://git-scm.com/download">download Git here</a>.)</p>
+
+<h4>
+<a id="mysql-optional" class="anchor" href="#mysql-optional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://www.mysql.com/">MySQL</a> (OPTIONAL)</h4>
+
+<p>(NOTE: If you're using this test framework from a local development machine and don't plan on writing to a MySQL DB from your local test runs, you can skip this step.)</p>
+
+<p>Mac:</p>
+
+<pre><code>brew install MySQL
+</code></pre>
+
+<p>Windows: <a href="http://dev.mysql.com/downloads/windows/">Download MySQL here</a></p>
+
+<p>That installs the MySQL library so that you can use db commands in your code. To make that useful, you'll want to have a MySQL DB that you can connect to. You'll also want to use the testcaserepository.sql file from the seleniumbase/core folder to add the necessary tables.</p>
+
+<p>If you want a visual tool to help make your MySQL life easier, <a href="http://dev.mysql.com/downloads/workbench/">try MySQL Workbench</a>.)</p>
+
+<h4>
+<a id="virtualenv" class="anchor" href="#virtualenv" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://virtualenv.readthedocs.org/en/latest/">Virtualenv</a>
+</h4>
+
+<p>Mac:</p>
+
+<pre><code>sudo easy_install virtualenv
+</code></pre>
+
+<p>Windows: (can be used with Mac also, but you may need to use "sudo")</p>
+
+<pre><code>pip install virtualenv
+</code></pre>
+
+<h4>
+<a id="chromedriver-and-phantomjs" class="anchor" href="#chromedriver-and-phantomjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://sites.google.com/a/chromium.org/chromedriver/">Chromedriver</a> and <a href="http://phantomjs.org/">PhantomJS</a>
+</h4>
+
+<p>Mac:</p>
+
+<pre><code>brew install chromedriver phantomjs
+</code></pre>
+
+<p>Windows: <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Download Chromedriver</a> and put it in your PATH. Next, <a href="https://bitbucket.org/ariya/phantomjs/downloads">Download PhantomJS</a> and also put that in your PATH.</p>
+
+<p>(NOTE: There are web drivers for other web browsers as well. These two will get you started.)</p>
+
+<p>If you haven't already, you'll want to <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a> and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Download Chrome</a> or <a href="https://download-chromium.appspot.com/">Download Chromium</a>.</p>
+
+<h4>
+<a id="step-1-download-or-clone-seleniumbase-to-your-local-machine" class="anchor" href="#step-1-download-or-clone-seleniumbase-to-your-local-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 1:</strong> Download or Clone SeleniumBase to your local machine</h4>
+
+<p>If you're using Git, you can fork the repository on GitHub to create your personal copy. This is important because you'll want to add your own configurations, credentials, settings, etc. Now you can clone your forked copy to your personal computer. You can use a tool such as <a href="http://www.sourcetreeapp.com/">SourceTree</a> to make things easier by providing you with a simple-to-use user interface for viewing and managing your git commits and status.</p>
+
+<div class="highlight highlight-source-shell"><pre>git clone [LOCATION OF YOUR FORKED SELENIUMBASE GITHUB FOLDER]/SeleniumBase.git
+<span class="pl-c1">cd</span> SeleniumBase</pre></div>
+
+<p>(NOTE: If you decided to download SeleniumBase rather than Git-cloning it, you can skip the above step.)</p>
+
+<h4>
+<a id="step-2-create-a-virtualenv-for-seleniumbase" class="anchor" href="#step-2-create-a-virtualenv-for-seleniumbase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 2:</strong> Create a virtualenv for seleniumbase</h4>
+
+<p>Mac:</p>
+
+<div class="highlight highlight-source-shell"><pre>mkdir -p <span class="pl-k">~</span>/Envs
+virtualenv <span class="pl-k">~</span>/Envs/seleniumbase
+<span class="pl-c1">source</span> <span class="pl-k">~</span>/Envs/seleniumbase/bin/activate</pre></div>
+
+<p>Windows:</p>
+
+<p>Same as above, except:
+1: Don't use "-p"
+2: Replace "~/" from above with the location of your home directory</p>
+
+<p>If you ever need to leave your virtual environment, use the following command:</p>
+
+<div class="highlight highlight-source-shell"><pre>deactivate</pre></div>
+
+<p>You can always jump back in later:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">source</span> <span class="pl-k">~</span>/Envs/seleniumbase/bin/activate</pre></div>
+
+<h4>
+<a id="step-3-install-necessary-packages-from-the-seleniumbase-folder-and-compile-the-test-framework-from-within-your-virtual-environment" class="anchor" href="#step-3-install-necessary-packages-from-the-seleniumbase-folder-and-compile-the-test-framework-from-within-your-virtual-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 3:</strong> Install necessary packages from the SeleniumBase folder and compile the test framework (from within your virtual environment)</h4>
+
+<p>If you don't desire connecting to a MySQL DB to record the results of your local test runs, run this command:</p>
+
+<div class="highlight highlight-source-shell"><pre>pip install -r requirements.txt</pre></div>
+
+<p>The "-e ." at the end of requirements.txt should automatically trigger setup.py installation from the following command:</p>
+
+<div class="highlight highlight-source-shell"><pre>python setup.py install</pre></div>
+
+<p>If you do desire connecting to a MySQL DB to record the results of your test runs, run this command: (Make sure you already have MySQL installed from either Brew or web-download. If you're a WINDOWS user, you may have problems on the MySQL installation part. To get around this, you can either follow the instructions from the error message given, or you can pip install the previous requirements.txt file.)</p>
+
+<div class="highlight highlight-source-shell"><pre>pip install -r server_requirements.txt</pre></div>
+
+<p>As mentioned before, the "-e ." in that file should automatically trigger installation of setup.py</p>
+
+<p>NOTE:</p>
+
+<p>(From a virtual environment, it should not be necessary to add "sudo" before those commands above.)</p>
+
+<p>In some cames, certain packages will have other dependencies as requirements, and those will get installed automatically. You'll be able to see all installed packages in your virtual environment by using the following command:</p>
+
+<div class="highlight highlight-source-shell"><pre>pip freeze</pre></div>
+
+<p>By default, some files may be hidden on a MAC, such as .gitignore (which is used to tell Git which files to ignore for staging commits). To view all files from the Finder window, run the following command in a terminal window:</p>
+
+<div class="highlight highlight-source-shell"><pre>defaults write com.apple.finder AppleShowAllFiles -bool <span class="pl-c1">true</span></pre></div>
+
+<p>(You may need to reopen the MAC Finder window to see changes from that.)</p>
+
+<h4>
+<a id="step-4-verify-that-selenium-and-chromedriver-were-successfully-installed-by-checking-inside-a-python-command-prompt-note-xkcd-is-a-webcomic" class="anchor" href="#step-4-verify-that-selenium-and-chromedriver-were-successfully-installed-by-checking-inside-a-python-command-prompt-note-xkcd-is-a-webcomic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 4:</strong> Verify that Selenium and Chromedriver were successfully installed by checking inside a python command prompt. (NOTE: xkcd is a webcomic)</h4>
+
+<div class="highlight highlight-source-shell"><pre>python
+<span class="pl-k">&gt;&gt;&gt;</span> from selenium import webdriver
+<span class="pl-k">&gt;&gt;&gt;</span> browser = <span class="pl-en">webdriver.Chrome</span>()
+<span class="pl-k">&gt;&gt;&gt;</span> browser.get(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/1337/<span class="pl-pds">"</span></span>)
+<span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-en">browser.close</span>()
+<span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-en">exit</span>()</pre></div>
+
+<h4>
+<a id="step-5-verify-that-seleniumbase-was-successfully-installed-by-running-the-example-test" class="anchor" href="#step-5-verify-that-seleniumbase-was-successfully-installed-by-running-the-example-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 5:</strong> Verify that SeleniumBase was successfully installed by running the example test</h4>
+
+<p>You can verify the installation of SeleniumBase by running a simple script to perform basic actions such as navigating to a web page, clicking, waiting for page elements to appear, typing in text, scraping text on a page, and verifying text. This may be a good time to read up on CSS selectors. If you use Chrome, you can right-click on a page and select "Inspect Element" to see the details you need to create such a script. With CSS selectors, dots represent class names and pound signs represent IDs.</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> seleniumbase <span class="pl-k">import</span> BaseCase
+
+<span class="pl-k">class</span> <span class="pl-en">MyTestClass</span>(<span class="pl-e">BaseCase</span>):
+
+    <span class="pl-k">def</span> <span class="pl-en">test_basic</span>(<span class="pl-smi">self</span>):
+        <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/353/<span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>div#comic<span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.click(<span class="pl-s"><span class="pl-pds">'</span>a[rel="license"]<span class="pl-pds">'</span></span>)
+        text <span class="pl-k">=</span> <span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">'</span>center<span class="pl-pds">'</span></span>).text
+        <span class="pl-v">self</span>.assertTrue(<span class="pl-s"><span class="pl-pds">"</span>reuse any of my drawings<span class="pl-pds">"</span></span> <span class="pl-k">in</span> text)
+        <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/1481/<span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.click_link_text(<span class="pl-s"><span class="pl-pds">'</span>Blag<span class="pl-pds">'</span></span>)
+        <span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>The blag<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>header h2<span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.update_text(<span class="pl-s"><span class="pl-pds">"</span>input#s<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Robots!<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Hooray robots!<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>#content<span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/1319/<span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Automation<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>div#ctitle<span class="pl-pds">"</span></span>)</pre></div>
+
+<p>Now try running the script (from the "examples" folder) using various web browsers:</p>
+
+<div class="highlight highlight-source-shell"><pre>nosetests my_first_test.py --browser=chrome --with-selenium -s
+
+nosetests my_first_test.py --browser=phantomjs --with-selenium -s
+
+nosetests my_first_test.py --browser=firefox --with-selenium -s</pre></div>
+
+<p>After the test completes, in the console output you'll see a dot on a new line, representing a passing test. (On test failures you'll see an F instead, and on test errors you'll see an E). It looks more like a moving progress bar when you're running a ton of unit tests side by side. This is part of nosetests. After all tests complete (in this case there is only one), you'll see the "Ran 1 test in ..." line, followed by an "OK" if all nosetests passed.</p>
+
+<p>If the example is moving too fast for your eyes to see what's going on, there are a few things you can do.
+You can add <code>--demo_mode</code> on the command line, which pauses the browser for about a second (by default) after each action:</p>
+
+<div class="highlight highlight-source-shell"><pre>nosetests my_first_test.py --with-selenium -s --demo_mode</pre></div>
+
+<p>You can override the default wait time by either updating <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">settings.py</a> or by using <code>--demo_sleep={NUM}</code> when using Demo Mode. (NOTE: If you use <code>--demo_sleep={NUM}</code> without using <code>--demo_mode</code>, nothing will happen.)</p>
+
+<div class="highlight highlight-source-shell"><pre>nosetests my_first_test.py --with-selenium -s --demo_mode --demo_sleep=1.2</pre></div>
+
+<p>You can also add either of the following to your scripts to slow down the tests:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> time; time.sleep(<span class="pl-c1">5</span>)  <span class="pl-c"># sleep for 5 seconds (add this after the line you want to pause on)</span>
+<span class="pl-k">import</span> ipdb; ipdb.set_trace()  <span class="pl-c"># waits for your command. n = next line of current method, c = continue, s = step / next executed line (will jump)</span></pre></div>
+
+<p>(NOTE: If you're using pytest instead of nosetests and you want to use ipdb in your script for debugging purposes, you'll either need to add "--capture=no" on the command line, or use "import pytest; pytest.set_trace()" instead of using ipdb. More info on that <a href="http://stackoverflow.com/questions/2678792/can-i-debug-with-python-debugger-when-using-py-test-somehow">here</a>.)</p>
+
+<p>You may also want to have your test sleep in other situations where you need to have your test wait for something. If you know what you're waiting for, you should be specific by using a command that waits for something specific to happen.</p>
+
+<p>If you need to debug things on the fly (in case of errors), use this line to run the code:</p>
+
+<div class="highlight highlight-source-shell"><pre>nosetests my_first_test.py --browser=chrome --with-selenium --pdb --pdb-failures -s</pre></div>
+
+<p>The above code (with --pdb) will leave your browser window open in case there's a failure, which is possible if the web pages from the example change the data that's displayed on the page. (ipdb commands: 'c', 's', 'n' =&gt; continue, step, next).</p>
+
+<p>Here are some other useful nosetest arguments that you may want to append to your run commands:</p>
+
+<div class="highlight highlight-source-shell"><pre>--logging-level=INFO  <span class="pl-c"># Hide DEBUG messages, which can be overwhelming.</span>
+-x  <span class="pl-c"># Stop running the tests after the first failure is reached.</span>
+-v  <span class="pl-c"># Prints the full test name rather than a dot for each test.</span>
+--with-id  <span class="pl-c"># If -v is also used, will number the tests for easy counting.</span></pre></div>
+
+<p>Due to high demand, pytest support has been added. You can run the above sample script in pytest like this:</p>
+
+<div class="highlight highlight-source-shell"><pre>py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=chrome -s
+
+py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=phantomjs -s
+
+py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=firefox -s</pre></div>
+
+<p>(NOTE: I'm currently adding more pytest plugins to catch up with nosetests. The latest one added is "--with-testing_base", which gives you full logging on test failures for screenshots, page source, and basic test info. Coming soon: The DB and S3 plugins, which are already available with nosetests.)</p>
+
+<h4>
+<a id="step-6-complete-the-setup" class="anchor" href="#step-6-complete-the-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 6:</strong> Complete the setup</h4>
+
+<p>If you're planning on using the full power of this test framework, there are a few more things you'll want to do:</p>
+
+<ul>
+<li><p>Setup your <a href="http://jenkins-ci.org/">Jenkins</a> build server for running your tests at regular intervals. (Or you can use any build server you want.)</p></li>
+<li><p>Setup an <a href="http://aws.amazon.com/s3/">Amazon S3</a> account for saving your log files and screenshots for future viewing. This test framework already has the code you need to connect to it. (Modify the s3_manager.py file from the seleniumbase/core folder with connection details to your instance.)</p></li>
+<li><p>Install <a href="http://dev.mysql.com/downloads/tools/workbench/">MySQL Workbench</a> to make life easier by giving you a nice GUI tool that you can use to read &amp; write from your DB directly.</p></li>
+<li><p>Setup your Selenium Grid and update your *.cfg file to point there. An example config file called selenium_server_config_example.cfg has been provided for you in the integrations/selenium_grid folder. The start-selenium-node.bat and start-selenium-server.sh files are for running your grid. In an example situation, your Selenium Grid server might live on a unix box and your Selenium Grid nodes might live on EC2 Windows virtual machines. When your build server runs a Selenium test, it would connect to your Selenium Grid to find out which Grid browser nodes are available to run that test. To simplify things, you can use <a href="https://www.browserstack.com/automate">Browser Stack</a> as your entire Selenium Grid (and let them do all the fun work of maintaining the grid for you).</p></li>
+<li><p>There are ways of running your tests from Jenkins without having to utilize a remote machine. One way is by using PhantomJS as your browser (it runs headlessly). Another way is by using Xvfb (another headless system). <a href="https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin">There's a plugin for Xvfb in Jenkins</a>.
+If you have Xvfb running in the background, you can add <code>--headless</code> to your run command in order to utilize it.
+Here are some more helpful resources I found regarding the use of Xvfb:</p></li>
+<li><a href="http://stackoverflow.com/questions/6183276/how-do-i-run-selenium-in-xvfb">http://stackoverflow.com/questions/6183276/how-do-i-run-selenium-in-xvfb</a></li>
+<li><a href="http://qxf2.com/blog/xvfb-plugin-for-jenkins-selenium/">http://qxf2.com/blog/xvfb-plugin-for-jenkins-selenium/</a></li>
+<li><p><a href="http://stackoverflow.com/questions/27202131/firefox-started-by-selenium-ignores-the-display-created-by-pyvirtualdisplay">http://stackoverflow.com/questions/27202131/firefox-started-by-selenium-ignores-the-display-created-by-pyvirtualdisplay</a></p></li>
+<li><p>If you use <a href="https://slack.com">Slack</a>, you can easily have your Jenkins jobs display results there by using the <a href="https://github.com/jenkinsci/slack-plugin">Jenkins Slack Plugin</a>. Another way to send messages from your tests to Slack is by using <a href="https://api.slack.com/incoming-webhooks">Slack's Incoming Webhooks API</a>.</p></li>
+<li><p>If you use <a href="https://www.hipchat.com/">HipChat</a>, you can easily have your Jenkins jobs display results there by using the <a href="https://wiki.jenkins-ci.org/display/JENKINS/HipChat+Plugin">Jenkins HipChat Plugin</a>. Another way is by using the hipchat_reporting plugin, which is included with this test framework.</p></li>
+<li><p>Be sure to tell SeleniumBase to use these added features when you set them up. That's easy to do. You would be running tests like this:</p></li>
+</ul>
+
+<div class="highlight highlight-source-shell"><pre>nosetests [YOUR_TEST_FILE].py --browser=chrome --with-selenium --with-testing_base --with-basic_test_info --with-page_source --with-screen_shots --with-db_reporting --with-s3_logging -s</pre></div>
+
+<p>(When the testing_base plugin is used, if there's a test failure, the basic_test_info plugin records test logs, the page_source plugin records the page source of the last web page seen by the test, and the screen_shots plugin records the image of the last page seen by the test where the failure occurred. Make sure you always include testing_base whenever you include a plugin that logs test data. The db_reporting plugin records the status of all tests as long as you've setup your MySQL DB properly and you've also updated your seleniumbase/core/mysql_conf.py file with your DB credentials.)
+To simplify that long run command, you can create a *.cfg file, such as the one provided in the example, and enter your plugins there so that you can run everything by typing:</p>
+
+<div class="highlight highlight-source-shell"><pre>nosetests [YOUR_TEST_FILE].py --config=[MY_CONFIG_FILE].cfg -s</pre></div>
+
+<p>So much easier on the eyes :)
+You can simplify that even more by using a setup.cfg file, such as the one provided for you in the examples folder. If you kick off a test run from within the folder that setup.cfg is location in, that file will automatically be used as your configuration, meaning that you wouldn't have to type out all the plugins that you want to use (or include a config file) everytime you run tests.</p>
+
+<p>If you tell nosetests to run an entire file, it will run every method in that python file that starts with "test". You can be more specific on what to run by doing something like:</p>
+
+<div class="highlight highlight-source-shell"><pre>nosetests [YOUR_TEST_FILE].py:[SOME_CLASS_NAME].test_[SOME_TEST_NAME] --config=[MY_CONFIG_FILE].cfg -s</pre></div>
+
+<p>Let's try an example of a test that fails. Copy the following into a file called fail_test.py:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-s"><span class="pl-pds">"""</span> test_fail.py <span class="pl-pds">"""</span></span>
+<span class="pl-k">from</span> seleniumbase <span class="pl-k">import</span> BaseCase
+
+<span class="pl-k">class</span> <span class="pl-en">MyTestClass</span>(<span class="pl-e">BaseCase</span>):
+
+    <span class="pl-k">def</span> <span class="pl-en">test_find_army_of_robots_on_xkcd_desert_island</span>(<span class="pl-smi">self</span>):
+        <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/731/<span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>div#ARMY_OF_ROBOTS<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">3</span>)  <span class="pl-c"># This should fail</span></pre></div>
+
+<p>Now run it:</p>
+
+<div class="highlight highlight-source-shell"><pre>nosetests test_fail.py --browser=chrome --with-selenium --with-testing_base --with-basic_test_info --with-page_source --with-screen_shots -s</pre></div>
+
+<p>You'll notice that a logs folder was created to hold information about the failing test, and screenshots. Take a look at what you get. Remember, this data can be saved in your MySQL DB and in S3 if you include the necessary plugins in your run command (and if you set up the neccessary connections properly). For future test runs, past test results will get stored in the archived_logs folder.</p>
+
+<p>Have you made it this far? Congratulations!!! Now you're ready to dive in at full speed!</p>
+
+<h3>
+<a id="part-ii-detailed-method-specifications-examples" class="anchor" href="#part-ii-detailed-method-specifications-examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Part II: Detailed Method Specifications, Examples</h3>
+
+<h4>
+<a id="navigating-to-a-page-plus-some-other-useful-related-commands" class="anchor" href="#navigating-to-a-page-plus-some-other-useful-related-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Navigating to a Page, Plus Some Other Useful Related Commands</h4>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>https://xkcd.com/378/<span class="pl-pds">"</span></span>)  <span class="pl-c"># Instant navigation to any web page.</span>
+
+<span class="pl-v">self</span>.driver.refresh()  <span class="pl-c"># refresh/reload the current page.</span>
+
+where_am_i <span class="pl-k">=</span> <span class="pl-v">self</span>.driver.current_url  <span class="pl-c"># this variable changes as the current page changes.</span>
+
+source <span class="pl-k">=</span> <span class="pl-v">self</span>.driver.page_source   <span class="pl-c"># this variable changes as the page source changes.</span></pre></div>
+
+<p><strong>ProTip™:</strong> You may need to use the page_source method along with Python's find() command to parse through the source to find something that Selenium wouldn't be able to. (You may want to brush up on your Python programming skills if you're confused.)
+Ex:</p>
+
+<div class="highlight highlight-source-python"><pre>source <span class="pl-k">=</span> <span class="pl-v">self</span>.driver.page_source
+first_image_open_tag <span class="pl-k">=</span> source.find(<span class="pl-s"><span class="pl-pds">'</span>&lt;img&gt;<span class="pl-pds">'</span></span>)
+first_image_close_tag <span class="pl-k">=</span> source.find<span class="pl-s"><span class="pl-pds">'</span>&lt;/img&gt;<span class="pl-pds">'</span></span>, first_image_open_tag)
+everything_inside_first_image_tags <span class="pl-k">=</span> source[first_image_open_tag<span class="pl-k">+</span><span class="pl-c1">len</span>(<span class="pl-s"><span class="pl-pds">'</span>&lt;img&gt;<span class="pl-pds">'</span></span>):first_image_close_tag]</pre></div>
+
+<h4>
+<a id="clicking" class="anchor" href="#clicking" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clicking</h4>
+
+<p>To click an element on the page:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.click(<span class="pl-s"><span class="pl-pds">"</span>div#my_id<span class="pl-pds">"</span></span>)</pre></div>
+
+<h4>
+<a id="asserting-existance-of-an-element-on-a-page-within-some-number-of-seconds" class="anchor" href="#asserting-existance-of-an-element-on-a-page-within-some-number-of-seconds" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asserting existance of an element on a page within some number of seconds:</h4>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_element_present(<span class="pl-s"><span class="pl-pds">"</span>div.my_class<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">10</span>)</pre></div>
+
+<h4>
+<a id="asserting-visibility-of-an-element-on-a-page-within-some-number-of-seconds" class="anchor" href="#asserting-visibility-of-an-element-on-a-page-within-some-number-of-seconds" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asserting visibility of an element on a page within some number of seconds:</h4>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>a.my_class<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">5</span>)</pre></div>
+
+<p>Since the line above returns the element, you can combine that with .click() as shown below:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>a.my_class<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">5</span>).click()
+
+<span class="pl-c"># But you're better off using the following statement, which does the same thing:</span>
+
+<span class="pl-v">self</span>.click(<span class="pl-s"><span class="pl-pds">"</span>a.my_class<span class="pl-pds">"</span></span>)  <span class="pl-c"># DO IT THIS WAY!</span></pre></div>
+
+<h4>
+<a id="asserting-visibility-of-text-inside-an-element-on-a-page-within-some-number-of-seconds" class="anchor" href="#asserting-visibility-of-text-inside-an-element-on-a-page-within-some-number-of-seconds" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asserting visibility of text inside an element on a page within some number of seconds:</h4>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Make it so!<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>div#trek div.picard div.quotes<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">3</span>)
+<span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Tea. Earl Grey. Hot.<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>div#trek div.picard div.quotes<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">1</span>)</pre></div>
+
+<h4>
+<a id="asserting-anything" class="anchor" href="#asserting-anything" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asserting Anything</h4>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.assertTrue(myvar1 <span class="pl-k">==</span> something)
+
+<span class="pl-v">self</span>.assertEqual(var1, var2)</pre></div>
+
+<h4>
+<a id="useful-conditional-statements-with-creative-examples-in-action" class="anchor" href="#useful-conditional-statements-with-creative-examples-in-action" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Useful Conditional Statements (with creative examples in action)</h4>
+
+<p>is_element_visible(selector)  # is an element visible on a page</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> logging
+<span class="pl-k">if</span> <span class="pl-v">self</span>.is_element_visible(<span class="pl-s"><span class="pl-pds">'</span>div#warning<span class="pl-pds">'</span></span>):
+    logging.debug(<span class="pl-s"><span class="pl-pds">"</span>Red Alert: Something bad might be happening!<span class="pl-pds">"</span></span>)</pre></div>
+
+<p>is_element_present(selector)  # is an element present on a page</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">if</span> <span class="pl-v">self</span>.is_element_present(<span class="pl-s"><span class="pl-pds">'</span>div#top_secret img.tracking_cookie<span class="pl-pds">'</span></span>):
+    <span class="pl-v">self</span>.contact_cookie_monster()  <span class="pl-c"># Not a real method unless you define it somewhere</span>
+<span class="pl-k">else</span>:
+    current_url <span class="pl-k">=</span> <span class="pl-v">self</span>.driver.current_url
+    <span class="pl-v">self</span>.contact_the_nsa(<span class="pl-v">url</span><span class="pl-k">=</span>current_url, <span class="pl-v">message</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Dark Zone Found<span class="pl-pds">"</span></span>)  <span class="pl-c"># Not a real method unless you define it somewhere</span></pre></div>
+
+<p>Another example:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">def</span> <span class="pl-en">is_there_a_cloaked_klingon_ship_on_this_page</span>():
+    <span class="pl-k">if</span> <span class="pl-v">self</span>.is_element_present(<span class="pl-s"><span class="pl-pds">"</span>div.ships div.klingon<span class="pl-pds">"</span></span>):
+        <span class="pl-k">return</span> <span class="pl-k">not</span> <span class="pl-v">self</span>.is_element_visible(<span class="pl-s"><span class="pl-pds">"</span>div.ships div.klingon<span class="pl-pds">"</span></span>)
+    <span class="pl-k">return</span> <span class="pl-c1">False</span></pre></div>
+
+<p>is_text_visible(text, selector)  # is text visible on a page</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">def</span> <span class="pl-en">get_mirror_universe_captain_picard_superbowl_ad</span>(<span class="pl-smi">superbowl_year</span>):
+    selector <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>div.superbowl_<span class="pl-c1">%s</span> div.commercials div.transcript div.picard<span class="pl-pds">"</span></span> <span class="pl-k">%</span> superbowl_year
+    <span class="pl-k">if</span> <span class="pl-v">self</span>.is_text_visible(<span class="pl-s"><span class="pl-pds">"</span>For the Love of Marketing and Earl Grey Tea!<span class="pl-pds">"</span></span>, selector):
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>Picard HubSpot Superbowl Ad 2015<span class="pl-pds">"</span></span>
+    <span class="pl-k">elif</span> <span class="pl-v">self</span>.is_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Delivery Drones... Engage<span class="pl-pds">"</span></span>, selector):
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>Picard Amazon Superbowl Ad 2015<span class="pl-pds">"</span></span>
+    <span class="pl-k">elif</span> <span class="pl-v">self</span>.is_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Bing it on Screen!<span class="pl-pds">"</span></span>, selector):
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>Picard Microsoft Superbowl Ad 2015<span class="pl-pds">"</span></span>
+    <span class="pl-k">elif</span> <span class="pl-v">self</span>.is_text_visible(<span class="pl-s"><span class="pl-pds">"</span>OK Glass, Make it So!<span class="pl-pds">"</span></span>, selector):
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>Picard Google Superbowl Ad 2015<span class="pl-pds">"</span></span>
+    <span class="pl-k">elif</span> <span class="pl-v">self</span>.is_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Number One, I've Never Seen Anything Like It.<span class="pl-pds">"</span></span>, selector):
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>Picard Tesla Superbowl Ad 2015<span class="pl-pds">"</span></span>
+    <span class="pl-k">elif</span> <span class="pl-v">self</span>.is_text_visible(<span class="pl-s"><span class="pl-pds">"""</span>With the first link, the chain is forged.</span>
+<span class="pl-s">                              The first speech censored, the first thought forbidden,</span>
+<span class="pl-s">                              the first freedom denied, chains us all irrevocably.<span class="pl-pds">"""</span></span>, selector):
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>Picard Wikimedia Superbowl Ad 2015<span class="pl-pds">"</span></span>
+    <span class="pl-k">elif</span> <span class="pl-v">self</span>.is_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Let us make sure history never forgets the name ... Facebook<span class="pl-pds">"</span></span>, selector):
+        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>Picard Facebook Superbowl Ad 2015<span class="pl-pds">"</span></span>
+    <span class="pl-k">else</span>:
+        <span class="pl-k">raise</span> <span class="pl-c1">Exception</span>(<span class="pl-s"><span class="pl-pds">"</span>Reports of my assimilation are greatly exaggerated.<span class="pl-pds">"</span></span>)</pre></div>
+
+<h4>
+<a id="typing-text" class="anchor" href="#typing-text" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Typing Text</h4>
+
+<p>update_text(selector, text)  # updates the text from the specified element with the specified value. Exception raised if element missing or field not editable. Example:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.update_text(<span class="pl-s"><span class="pl-pds">"</span>input#id_value<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>2012<span class="pl-pds">"</span></span>)</pre></div>
+
+<p>You can also use the WebDriver .send_keys() command, but it won't clear the text box first if there's already text inside.
+If you want to type in special keys, that's easy too. Here's an example:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> selenium.webdriver.common.keys <span class="pl-k">import</span> Keys
+<span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>textarea<span class="pl-pds">"</span></span>).send_keys(Keys.<span class="pl-c1">SPACE</span> <span class="pl-k">+</span> Keys.<span class="pl-c1">BACK_SPACE</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span><span class="pl-pds">'</span></span>)  <span class="pl-c"># the backspace should cancel out the space, leaving you with the newline</span></pre></div>
+
+<h4>
+<a id="switching-tabs" class="anchor" href="#switching-tabs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Switching Tabs</h4>
+
+<p>What if your test opens up a new tab/window and now you have more than one page? No problem. You need to specify which one you currently want Selenium to use. Switching between tabs/windows is easy:
+Ex:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.driver.switch_to_window(<span class="pl-v">self</span>.driver.window_handles[<span class="pl-c1">1</span>])  <span class="pl-c"># this switches to the new tab</span></pre></div>
+
+<p>driver.window_handles is a list that will continually get updated when new windows/tabs appear (index numbering is auto-incrementing from 0, which represents the main window)</p>
+
+<p><strong>ProTip™:</strong> iFrames follow the same principle as new windows - you need to specify the iFrame if you want to take action on something in there
+Ex:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.driver.switch_to_frame(<span class="pl-s"><span class="pl-pds">'</span>ContentManagerTextBody_ifr<span class="pl-pds">'</span></span>)
+<span class="pl-c"># Now you can act inside the iFrame</span>
+<span class="pl-c"># Do something cool (here)</span>
+<span class="pl-v">self</span>.driver.switch_to_default_content()  <span class="pl-c"># exit the iFrame when you're done</span></pre></div>
+
+<h4>
+<a id="handle-pop-up-alerts" class="anchor" href="#handle-pop-up-alerts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Handle Pop-Up Alerts</h4>
+
+<p>What if your test makes an alert pop up in your browser? No problem. You need to switch to it and either accept it or dismiss it:
+Ex:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_and_accept_alert()
+
+<span class="pl-v">self</span>.wait_for_and_dismiss_alert()</pre></div>
+
+<p>If you're not sure whether there's an alert before trying to accept or dismiss it, one way to handle that is to wrap your alert-handling code in a try/except block. Other methods such as .text and .send_keys() will also work with alerts.</p>
+
+<h4>
+<a id="executing-custom-jquery-scripts" class="anchor" href="#executing-custom-jquery-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Executing Custom jQuery Scripts:</h4>
+
+<p>jQuery is a powerful JavaScript library that allows you to perform advanced actions in a web browser.
+If the web page you're on already has jQuery loaded, you can start executing jQuery scripts immediately.
+You'd know this because the web page would contain something like the following in the HTML:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<p>It's OK if you want to use jQuery on a page that doesn't have it loaded yet. To do so, run the following command first:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.activate_jquery()</pre></div>
+
+<p>Here are some examples of using jQuery in your scripts:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.execute_script(<span class="pl-s"><span class="pl-pds">'</span>jQuery, window.scrollTo(0, 600)<span class="pl-pds">'</span></span>)  <span class="pl-c"># Scrolling the page</span>
+
+<span class="pl-v">self</span>.execute_script(<span class="pl-s"><span class="pl-pds">"</span>jQuery('#annoying-widget').hide()<span class="pl-pds">"</span></span>)  <span class="pl-c"># Hiding elements on a page</span>
+
+<span class="pl-v">self</span>.execute_script(<span class="pl-s"><span class="pl-pds">"</span>jQuery('#annoying-button a').remove()<span class="pl-pds">"</span></span>)  <span class="pl-c"># Removing elements on a page</span>
+
+<span class="pl-v">self</span>.execute_script(<span class="pl-s"><span class="pl-pds">"</span>jQuery('<span class="pl-c1">%s</span>').mouseover()<span class="pl-pds">"</span></span> <span class="pl-k">%</span> (mouse_over_item))  <span class="pl-c"># Mouse-over elements on a page</span>
+
+<span class="pl-v">self</span>.execute_script(<span class="pl-s"><span class="pl-pds">"</span>jQuery('input#the_id').val('my_text')<span class="pl-pds">"</span></span>)  <span class="pl-c"># Fast text input on a page</span>
+
+<span class="pl-v">self</span>.execute_script(<span class="pl-s"><span class="pl-pds">"</span>jQuery('div#dropdown a.link').click()<span class="pl-pds">"</span></span>)  <span class="pl-c"># Click elements on a page</span>
+
+<span class="pl-v">self</span>.execute_script(<span class="pl-s"><span class="pl-pds">"</span>return jQuery('div#amazing')[0].text<span class="pl-pds">"</span></span>)  <span class="pl-c"># Returns the css "text" of the element given</span>
+
+<span class="pl-v">self</span>.execute_script(<span class="pl-s"><span class="pl-pds">"</span>return jQuery('textarea')[2].value<span class="pl-pds">"</span></span>)  <span class="pl-c"># Returns the css "value" of the 3rd textarea element on the page</span></pre></div>
+
+<p>In the following example, javascript is used to plant code on a page that Selenium can then touch after that:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.open(<span class="pl-c1">SOME_PAGE_TO_PLAY_WITH</span>)
+referral_link <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;a class="analytics test" href="<span class="pl-c1">%s</span>"&gt;Free-Referral Button!&lt;/a&gt;<span class="pl-pds">'</span></span> <span class="pl-k">%</span> <span class="pl-c1">DESTINATION_URL</span>
+<span class="pl-v">self</span>.execute_script(<span class="pl-s"><span class="pl-pds">"</span>document.body.innerHTML = <span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span><span class="pl-pds">"</span></span> <span class="pl-k">%</span> referral_link)
+<span class="pl-v">self</span>.click(<span class="pl-s"><span class="pl-pds">"</span>a.analytics<span class="pl-pds">"</span></span>)  <span class="pl-c"># Clicks the generated button</span></pre></div>
+
+<h3>
+<a id="part-iii-more-details" class="anchor" href="#part-iii-more-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Part III: More Details</h3>
+
+<p>Nosetests automatically runs any python method that starts with "test" from the file you selected. You can also select specific tests to run from files or classes. For example, the code in the early examples could've been run using "nosetests my_first_test.py:MyTestClass.test_basic ... ...". If you wanted to run all tests in MyTestClass, you can use: "nosetests my_first_test.py:MyTestClass ... ...", which is useful when you have multiple tests in the same file. Don't forget the plugins. Use "-s" if you want better logging in the console output.</p>
+
+<p>To use the SeleniumBase Test Framework calls, don't forget to include the following import:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> seleniumbase <span class="pl-k">import</span> BaseCase</pre></div>
+
+<p>And you'll need to inherit BaseCase in your classes like so:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">class</span> <span class="pl-en">MyTestClass</span>(<span class="pl-e">BaseCase</span>):</pre></div>
+
+<h4>
+<a id="checking-email" class="anchor" href="#checking-email" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Checking Email:</h4>
+
+<p>Let's say you have a test that sends an email, and now you want to check that the email was received:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> seleniumbase.fixtures.email_manager <span class="pl-k">import</span> EmailManager, EmailException
+num_email_results <span class="pl-k">=</span> <span class="pl-c1">0</span>
+email_subject <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>This is the subject to search for (maybe include a timestamp)<span class="pl-pds">"</span></span>
+email_manager <span class="pl-k">=</span> EmailManager(<span class="pl-s"><span class="pl-pds">"</span>[YOUR SELENIUM GMAIL EMAIL ADDRESS]<span class="pl-pds">"</span></span>)  <span class="pl-c"># the password for this is elsewhere (in the library) because this is a default email account</span>
+<span class="pl-k">try</span>:
+    html_text <span class="pl-k">=</span> email_manager.search(<span class="pl-v">SUBJECT</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span><span class="pl-c1">%s</span><span class="pl-pds">"</span></span> <span class="pl-k">%</span> email_subject, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">300</span>)
+    num_email_results <span class="pl-k">=</span> <span class="pl-c1">len</span>(html_text)
+<span class="pl-k">except</span> EmailException:
+    num_email_results <span class="pl-k">=</span> <span class="pl-c1">0</span>
+<span class="pl-v">self</span>.assertTrue(num_email_results)  <span class="pl-c"># true if not zero</span></pre></div>
+
+<p>Now you can parse through the email if you're looking for specific text or want to navigate to a link listed there.</p>
+
+<h4>
+<a id="database-powers" class="anchor" href="#database-powers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Database Powers:</h4>
+
+<p>Let's say you have a test that needs to access the database. First make sure you already have a table ready. Then try this example:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> seleniumbase.core.mysql <span class="pl-k">import</span> DatabaseManager
+<span class="pl-k">def</span> <span class="pl-en">write_data_to_db</span>(<span class="pl-smi">self</span>, <span class="pl-smi">theId</span>, <span class="pl-smi">theValue</span>, <span class="pl-smi">theUrl</span>):
+    db <span class="pl-k">=</span> DatabaseManager()
+    query <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"""</span>INSERT INTO myTable(theId,theValue,theUrl)</span>
+<span class="pl-s">               VALUES (<span class="pl-c1">%(theId)s</span>,<span class="pl-c1">%(theValue)s</span>,<span class="pl-c1">%(theUrl)s</span>)<span class="pl-pds">"""</span></span>
+    db.execute_query_and_close(query, {<span class="pl-s"><span class="pl-pds">"</span>theId<span class="pl-pds">"</span></span>:theId,
+                               <span class="pl-s"><span class="pl-pds">"</span>theValue<span class="pl-pds">"</span></span>:theValue,
+                               <span class="pl-s"><span class="pl-pds">"</span>theUrl<span class="pl-pds">"</span></span>:theUrl})</pre></div>
+
+<p>Access credentials are stored in your library file for your convenience (you have to add them first).</p>
+
+<p>The following example below (taken from the Delayed Data Manager) shows how data can be pulled from the database.</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> logging
+<span class="pl-k">from</span> seleniumbase.core.mysql <span class="pl-k">import</span> DatabaseManager
+
+<span class="pl-k">def</span> <span class="pl-en">get_delayed_test_data</span>(<span class="pl-smi">self</span>, <span class="pl-smi">testcase_address</span>, <span class="pl-smi">done</span><span class="pl-k">=</span><span class="pl-c1">0</span>):
+    <span class="pl-s"><span class="pl-pds">"""</span> Returns a list of rows <span class="pl-pds">"""</span></span>
+    db <span class="pl-k">=</span> DatabaseManager()
+    query <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"""</span>SELECT guid,testcaseAddress,insertedAt,expectedResult,done</span>
+<span class="pl-s">               FROM delayedTestData</span>
+<span class="pl-s">               WHERE testcaseAddress=<span class="pl-c1">%(testcase_address)s</span></span>
+<span class="pl-s">               AND done=<span class="pl-c1">%(done)s</span><span class="pl-pds">"""</span></span>
+    data <span class="pl-k">=</span> db.fetchall_query_and_close(query, {<span class="pl-s"><span class="pl-pds">"</span>testcase_address<span class="pl-pds">"</span></span>:testcase_address, <span class="pl-s"><span class="pl-pds">"</span>done<span class="pl-pds">"</span></span>:done})
+    <span class="pl-k">if</span> data:
+        <span class="pl-k">return</span> data
+    <span class="pl-k">else</span>:
+        logging.debug(<span class="pl-s"><span class="pl-pds">"</span>Could not find any rows in delayedTestData.<span class="pl-pds">"</span></span>)
+        logging.debug(<span class="pl-s"><span class="pl-pds">"</span>DB Query = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> query <span class="pl-k">%</span> {<span class="pl-s"><span class="pl-pds">"</span>testcase_address<span class="pl-pds">"</span></span>:testcase_address, <span class="pl-s"><span class="pl-pds">"</span>done<span class="pl-pds">"</span></span>:done})
+        <span class="pl-k">return</span> []</pre></div>
+
+<p>Now you know how to pull data from your MySQL DB.</p>
+
+<p>You may also be wondering when you would use the Delayed Data Manager. Here's one example: If you scheduled an email to go out 12 hours from now and you wanted to check that the email gets received (but you don't want the Selenium test of a Jenkins job to sit idle for 12 hours) you can store the email credentials as a unique time-stamp for the email subject in the DB (along with a time for when it's safe for the email to be searched for) and then a later-running test can do the checking after the right amount of time has passed.</p>
+
+<p>Congratulations! If you've made it this far, it means you have a pretty good idea about how to move forward!
+Feel free to check out other exciting open source projects on GitHub:
+<a href="https://github.com/hubspot">https://github.com/hubspot</a></p>
+
+<p>Happy Automating!</p>
+
+<p>~ Michael Mintz (<a href="https://github.com/mdmintz">https://github.com/mdmintz</a>)</p>
+
+<h3>
+<a id="legal-disclaimer" class="anchor" href="#legal-disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Legal Disclaimer</h3>
+
+<p>Automation is a powerful tool. It allows you to take full control of web browsers and do almost anything that a human could do, but faster. It can be used for both good and evil. With great power comes great responsibility. You are fully responsible for how you use this framework and the automation that you create. You may also want to see an expert when it comes to setting up your automation environment if you require assistance.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mdmintz/SeleniumBase">SeleniumBase</a> is maintained by <a href="https://github.com/mdmintz">mdmintz</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>

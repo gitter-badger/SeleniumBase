@@ -53,24 +53,34 @@
 <a id="docker-users-if-you-want-to-run-browser-automation-with-docker-see-the-docker-readme" class="anchor" href="#docker-users-if-you-want-to-run-browser-automation-with-docker-see-the-docker-readme" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(DOCKER users: If you want to run browser automation with Docker, see the <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/docker/ReadMe.md">Docker ReadMe</a>)</h4>
 
 <h4>
-<a id="step-0-get-the-requirements" class="anchor" href="#step-0-get-the-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0:</strong> Get the requirements</h4>
+<a id="step-0a-get-basic-requirements" class="anchor" href="#step-0a-get-basic-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0a:</strong> Get basic requirements</h4>
 
 <p>If you don't already have <code>python</code>, <code>pip</code>, <code>git</code>, and either <code>virtualenv</code> or <code>virtualenvwrapper</code> installed and accessible from your terminal (command prompt), you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">follow these instructions</a> to get those installed.</p>
 
-<p>If you plan on storing data in a MySQL DB (OPTIONAL), you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/mysql_installation.md">follow these instructions</a> to get that installed.</p>
+<h4>
+<a id="step-0b-get-web-browsers-to-run-automation-on" class="anchor" href="#step-0b-get-web-browsers-to-run-automation-on" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0b:</strong> Get web browsers to run automation on</h4>
+
+<p>If you haven't already, you'll want to <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a> and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Download Chrome</a> or <a href="https://download-chromium.appspot.com/">Download Chromium</a>.</p>
 
 <h4>
-<a id="chromedriver-and-phantomjs" class="anchor" href="#chromedriver-and-phantomjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://sites.google.com/a/chromium.org/chromedriver/">Chromedriver</a> and <a href="http://phantomjs.org/">PhantomJS</a>
-</h4>
+<a id="step-0c-get-drivers-for-the-web-browsers-that-require-them" class="anchor" href="#step-0c-get-drivers-for-the-web-browsers-that-require-them" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0c:</strong> Get drivers for the web browsers that require them</h4>
 
-<p>If you want to run automation on browsers other than Firefox (such as Chrome), you'll need to download drivers for those separately, and that means you may need to install <code>brew</code> (aka <code>homebrew</code>) if you're using a Mac. You may have previously installed <code>brew</code> if you used that a few steps above to install <code>git</code>.</p>
+<p>If you want to run automation on browsers other than Firefox (such as Chrome), you'll need to download <a href="https://sites.google.com/a/chromium.org/chromedriver/">Chromedriver</a> and <a href="http://phantomjs.org/">PhantomJS</a> separately. (Firefox drivers are already included with Selenium by default)</p>
+
+<p>On a Mac you can install those drivers more easily by using <code>brew</code> (aka <code>homebrew</code>). You may have previously installed <code>brew</code> if you used that a few steps above to install <code>git</code>.</p>
 
 <p>Mac:</p>
 
 <div class="highlight highlight-source-shell"><pre>brew install chromedriver phantomjs</pre></div>
 
-<p>Windows: <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Download Chromedriver</a> and put it in your PATH. Next, <a href="https://bitbucket.org/ariya/phantomjs/downloads">Download PhantomJS</a> (OPTIONAL - if you want to run headless browser automation) and also put that in your PATH.
-If you haven't already, you'll want to <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a> and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Download Chrome</a> or <a href="https://download-chromium.appspot.com/">Download Chromium</a>.</p>
+<p>Windows:</p>
+
+<ul>
+<li>
+<a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Download Chromedriver</a> and put it in your PATH.</li>
+<li>OPTIONAL: <a href="https://bitbucket.org/ariya/phantomjs/downloads">Download PhantomJS</a> (only if you want to run headless browser automation)</li>
+<li>For everything you download, put those files in your PATH. (<code>Environmental Variables</code> on a Windows machine)</li>
+</ul>
 
 <h4>
 <a id="step-1-download-or-clone-seleniumbase-to-your-local-machine" class="anchor" href="#step-1-download-or-clone-seleniumbase-to-your-local-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 1:</strong> Download or Clone SeleniumBase to your local machine</h4>
@@ -79,6 +89,10 @@ If you haven't already, you'll want to <a href="https://www.mozilla.org/en-US/fi
 <span class="pl-c1">cd</span> SeleniumBase</pre></div>
 
 <p>(You can use a tool such as <a href="http://www.sourcetreeapp.com/">SourceTree</a> to make things easier by providing you with a simple-to-use user interface for viewing and managing your git commits and status.)</p>
+
+<p>Depending on your Mac settings, some files may be hidden from view in your Finder window, such as <code>.gitignore</code>. To view all files, run the following command and then reopen the Finder window:</p>
+
+<div class="highlight highlight-source-shell"><pre>defaults write com.apple.finder AppleShowAllFiles -bool <span class="pl-c1">true</span></pre></div>
 
 <h4>
 <a id="step-2-create-a-virtualenv-for-seleniumbase-and-activate-it" class="anchor" href="#step-2-create-a-virtualenv-for-seleniumbase-and-activate-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 2:</strong> Create a virtualenv for seleniumbase and activate it</h4>
@@ -92,17 +106,7 @@ If you haven't already, you'll want to <a href="https://www.mozilla.org/en-US/fi
 
 <div class="highlight highlight-source-shell"><pre>python setup.py install</pre></div>
 
-<p>If you want to connect to a MySQL DB to record the results of your test runs, run this command: (Make sure you already have MySQL installed from either Brew or web-download. If you're a WINDOWS user, you may have problems on the MySQL installation part. To get around this, you can either follow the instructions from the error message given, or you can pip install the previous requirements.txt file.)</p>
-
-<div class="highlight highlight-source-shell"><pre>pip install -r server_requirements.txt  <span class="pl-c"># For MySQL DB usage ONLY!</span></pre></div>
-
-<p>NOTE:</p>
-
-<p>By default, some files may be hidden on a MAC, such as .gitignore (which is used to tell Git which files to ignore for staging commits). To view all files from the Finder window, run the following command in a terminal window:</p>
-
-<div class="highlight highlight-source-shell"><pre>defaults write com.apple.finder AppleShowAllFiles -bool <span class="pl-c1">true</span></pre></div>
-
-<p>(You may need to reopen the MAC Finder window to see changes from that.)</p>
+<p>If you wish to use the MySQL functionality with SeleniumBase to store test results and data in the database, you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/mysql_installation.md">follow these instructions</a>.</p>
 
 <h4>
 <a id="step-4-verify-that-selenium-and-chromedriver-were-successfully-installed-by-checking-inside-a-python-command-prompt-note-xkcd-is-a-webcomic" class="anchor" href="#step-4-verify-that-selenium-and-chromedriver-were-successfully-installed-by-checking-inside-a-python-command-prompt-note-xkcd-is-a-webcomic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 4:</strong> Verify that Selenium and Chromedriver were successfully installed by checking inside a python command prompt. (NOTE: xkcd is a webcomic)</h4>

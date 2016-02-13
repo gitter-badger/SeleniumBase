@@ -24,20 +24,24 @@
 </h2>
 
 <h3>
-<a id="an-open-source-solution-for-reliable-testing-and-business-automation" class="anchor" href="#an-open-source-solution-for-reliable-testing-and-business-automation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>An open-source solution for reliable testing and business automation.</h3>
+<a id="an-open-source-python-library-for-reliable-testing-and-business-automation" class="anchor" href="#an-open-source-python-library-for-reliable-testing-and-business-automation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><em>(An open-source Python library for reliable testing and business automation)</em>
+</h3>
 
 <h4>
 <a id="features-include" class="anchor" href="#features-include" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features include:</h4>
 
 <ul>
 <li>
-<a href="https://github.com/mdmintz/SeleniumBase/tree/master/seleniumbase/fixtures">Python wrappers</a> for WebDriver to quickly create <a href="https://github.com/mdmintz/SeleniumBase/blob/master/examples/my_first_test.py">reliable scripts</a> that run efficiently.</li>
-<li>Built-in <a href="https://github.com/mdmintz/SeleniumBase/tree/master/seleniumbase/plugins">Nosetest &amp; Pytest plugins</a> for logging <a href="https://github.com/mdmintz/SeleniumBase/tree/master/examples/logs_for_test_fail">test data, results, and screenshots</a>.</li>
-<li>Simple integration with <a href="http://jenkins-ci.org/">Jenkins</a>, <a href="http://docs.seleniumhq.org/projects/grid/">Selenium Grid</a>, <a href="http://www.mysql.com/">MySQL</a>, <a href="https://www.docker.com/">Docker</a>, and <a href="http://aws.amazon.com/">AWS</a>.</li>
+<a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/fixtures/base_case.py">Code</a> for quickly building <a href="https://github.com/mdmintz/SeleniumBase/blob/master/examples/my_first_test.py">reliable WebDriver scripts</a>.</li>
+<li>
+<a href="https://github.com/mdmintz/SeleniumBase/tree/master/seleniumbase/plugins">Plugins</a> for logging <a href="https://github.com/mdmintz/SeleniumBase/tree/master/examples/logs_for_test_fail">data and screenshots</a>.</li>
+<li>Easy integration with <a href="https://github.com/mdmintz/SeleniumBase/tree/master/integrations/selenium_grid">Selenium Grid</a>, <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/core/testcase_manager.py">MySQL</a>, <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/docker/ReadMe.md">Docker</a>, <a href="https://github.com/mdmintz/SeleniumBase/tree/master/integrations/google_cloud">Jenkins on Google Cloud</a>, and <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/plugins/s3_logging_plugin.py">Amazon S3</a>.</li>
 <li>Customizable with command-line options and a global config file: <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">settings.py</a>.</li>
 </ul>
 
-<p><em>Trusted by the world's most promising companies, including <a href="http://www.hubspot.com/">HubSpot</a>, <a href="http://jana.com/">Jana</a>, and <a href="http://www.veracode.com/">Veracode</a>. Learn how HubSpot uses SeleniumBase by reading: <a href="http://dev.hubspot.com/blog/bid/88880/Automated-Integration-Testing-with-Selenium-at-HubSpot">Automated Testing with Selenium</a>.</em></p>
+<h5>
+<a id="trusted-by-the-worlds-most-promising-companies-including-hubspot-jana-and-veracode-learn-how-hubspot-uses-seleniumbase-by-reading-automated-testing-with-selenium" class="anchor" href="#trusted-by-the-worlds-most-promising-companies-including-hubspot-jana-and-veracode-learn-how-hubspot-uses-seleniumbase-by-reading-automated-testing-with-selenium" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><em>(Trusted by the world's most promising companies, including <a href="http://www.hubspot.com/">HubSpot</a>, <a href="http://jana.com/">Jana</a>, and <a href="http://www.veracode.com/">Veracode</a>. Learn how HubSpot uses SeleniumBase by reading: <a href="http://dev.hubspot.com/blog/bid/88880/Automated-Integration-Testing-with-Selenium-at-HubSpot">Automated Testing with Selenium</a>.)</em>
+</h5>
 
 <h3>
 <a id="part-i-mac-setup-instructions" class="anchor" href="#part-i-mac-setup-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Part I: MAC SETUP INSTRUCTIONS</h3>
@@ -63,7 +67,7 @@
 <a id="pip" class="anchor" href="#pip" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://en.wikipedia.org/wiki/Pip_%28package_manager%29">Pip</a>
 </h4>
 
-<p>If "pip" did not come with your Python installation, you can <a href="https://pip.pypa.io/en/latest/installing/">GET PIP HERE</a>.</p>
+<p>If "pip" did not come with your Python installation, you can <a href="https://pip.pypa.io/en/latest/installing/">GET PIP HERE</a>, and make sure it's on your path.</p>
 
 <h4>
 <a id="homebrew--git-optional" class="anchor" href="#homebrew--git-optional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://brew.sh/">Homebrew</a> + <a href="http://git-scm.com/">Git</a> (OPTIONAL)</h4>
@@ -205,7 +209,7 @@ virtualenv <span class="pl-k">~</span>/Envs/seleniumbase
 
 <span class="pl-k">class</span> <span class="pl-en">MyTestClass</span>(<span class="pl-e">BaseCase</span>):
 
-    <span class="pl-k">def</span> <span class="pl-en">test_basic</span>(<span class="pl-smi">self</span>):
+    <span class="pl-k">def</span> <span class="pl-en">test_basic</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
         <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/353/<span class="pl-pds">"</span></span>)
         <span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>div#comic<span class="pl-pds">"</span></span>)
         <span class="pl-v">self</span>.click(<span class="pl-s"><span class="pl-pds">'</span>a[rel="license"]<span class="pl-pds">'</span></span>)
@@ -312,7 +316,7 @@ You can simplify that even more by using a setup.cfg file, such as the one provi
 
 <span class="pl-k">class</span> <span class="pl-en">MyTestClass</span>(<span class="pl-e">BaseCase</span>):
 
-    <span class="pl-k">def</span> <span class="pl-en">test_find_army_of_robots_on_xkcd_desert_island</span>(<span class="pl-smi">self</span>):
+    <span class="pl-k">def</span> <span class="pl-en">test_find_army_of_robots_on_xkcd_desert_island</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
         <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/731/<span class="pl-pds">"</span></span>)
         <span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>div#ARMY_OF_ROBOTS<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">3</span>)  <span class="pl-c"># This should fail</span></pre></div>
 
@@ -549,7 +553,7 @@ email_manager <span class="pl-k">=</span> EmailManager(<span class="pl-s"><span 
 <p>Let's say you have a test that needs to access the database. First make sure you already have a table ready. Then try this example:</p>
 
 <div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> seleniumbase.core.mysql <span class="pl-k">import</span> DatabaseManager
-<span class="pl-k">def</span> <span class="pl-en">write_data_to_db</span>(<span class="pl-smi">self</span>, <span class="pl-smi">theId</span>, <span class="pl-smi">theValue</span>, <span class="pl-smi">theUrl</span>):
+<span class="pl-k">def</span> <span class="pl-en">write_data_to_db</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">theId</span>, <span class="pl-smi">theValue</span>, <span class="pl-smi">theUrl</span>):
     db <span class="pl-k">=</span> DatabaseManager()
     query <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"""</span>INSERT INTO myTable(theId,theValue,theUrl)</span>
 <span class="pl-s">               VALUES (<span class="pl-c1">%(theId)s</span>,<span class="pl-c1">%(theValue)s</span>,<span class="pl-c1">%(theUrl)s</span>)<span class="pl-pds">"""</span></span>
@@ -564,7 +568,7 @@ email_manager <span class="pl-k">=</span> EmailManager(<span class="pl-s"><span 
 <div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> logging
 <span class="pl-k">from</span> seleniumbase.core.mysql <span class="pl-k">import</span> DatabaseManager
 
-<span class="pl-k">def</span> <span class="pl-en">get_delayed_test_data</span>(<span class="pl-smi">self</span>, <span class="pl-smi">testcase_address</span>, <span class="pl-smi">done</span><span class="pl-k">=</span><span class="pl-c1">0</span>):
+<span class="pl-k">def</span> <span class="pl-en">get_delayed_test_data</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>, <span class="pl-smi">testcase_address</span>, <span class="pl-smi">done</span><span class="pl-k">=</span><span class="pl-c1">0</span>):
     <span class="pl-s"><span class="pl-pds">"""</span> Returns a list of rows <span class="pl-pds">"""</span></span>
     db <span class="pl-k">=</span> DatabaseManager()
     query <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"""</span>SELECT guid,testcaseAddress,insertedAt,expectedResult,done</span>

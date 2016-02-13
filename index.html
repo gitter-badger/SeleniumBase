@@ -32,9 +32,9 @@
 
 <ul>
 <li>
-<a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/fixtures/base_case.py">Code</a> for quickly building <a href="https://github.com/mdmintz/SeleniumBase/blob/master/examples/my_first_test.py">reliable WebDriver scripts</a>.</li>
+<a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/fixtures/base_case.py">Python methods</a> for quickly building <a href="https://github.com/mdmintz/SeleniumBase/blob/master/examples/my_first_test.py">reliable WebDriver scripts</a>.</li>
 <li>
-<a href="https://github.com/mdmintz/SeleniumBase/tree/master/seleniumbase/plugins">Plugins</a> for logging <a href="https://github.com/mdmintz/SeleniumBase/tree/master/examples/logs_for_test_fail">data and screenshots</a>.</li>
+<a href="https://github.com/mdmintz/SeleniumBase/tree/master/seleniumbase/plugins">Plugins</a> for logging <a href="https://github.com/mdmintz/SeleniumBase/tree/master/examples/logs_for_test_fail">data and screenshots</a> automatically.</li>
 <li>Easy integration with <a href="https://github.com/mdmintz/SeleniumBase/tree/master/integrations/selenium_grid">Selenium Grid</a>, <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/core/testcase_manager.py">MySQL</a>, <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/docker/ReadMe.md">Docker</a>, <a href="https://github.com/mdmintz/SeleniumBase/tree/master/integrations/google_cloud">Jenkins on Google Cloud</a>, and <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/plugins/s3_logging_plugin.py">Amazon S3</a>.</li>
 <li>Customizable with command-line options and a global config file: <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">settings.py</a>.</li>
 </ul>
@@ -74,10 +74,9 @@
 
 <p>(NOTE: You can download the SeleniumBase repository right from GitHub and skip all the git-related commands. That's probably the fastest way if you want to quickly get a live demo of this tool up and running.)</p>
 
-<pre><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+<div class="highlight highlight-source-shell"><pre>ruby -e <span class="pl-s"><span class="pl-pds">"</span><span class="pl-s"><span class="pl-pds">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="pl-pds">)</span></span><span class="pl-pds">"</span></span>
 brew install git
-brew update
-</code></pre>
+brew update</pre></div>
 
 <p>(WINDOWS users: Skip the Homebrew part and <a href="http://git-scm.com/download">download Git here</a>.)</p>
 
@@ -88,8 +87,7 @@ brew update
 
 <p>Mac:</p>
 
-<pre><code>brew install MySQL
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>brew install MySQL</pre></div>
 
 <p>Windows: <a href="http://dev.mysql.com/downloads/windows/">Download MySQL here</a></p>
 
@@ -101,15 +99,17 @@ brew update
 <a id="virtualenv" class="anchor" href="#virtualenv" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://virtualenv.readthedocs.org/en/latest/">Virtualenv</a>
 </h4>
 
-<p>Mac:</p>
+<p>Mac: (The old regular way):</p>
 
-<pre><code>sudo easy_install virtualenv
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>sudo easy_install virtualenv</pre></div>
 
-<p>Windows: (can be used with Mac also, but you may need to use "sudo")</p>
+<p>Mac: (The new fancy way):</p>
 
-<pre><code>pip install virtualenv
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>sudo easy_install virtualenvwrapper</pre></div>
+
+<p>Windows:</p>
+
+<div class="highlight highlight-source-shell"><pre>pip install virtualenv</pre></div>
 
 <h4>
 <a id="chromedriver-and-phantomjs" class="anchor" href="#chromedriver-and-phantomjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://sites.google.com/a/chromium.org/chromedriver/">Chromedriver</a> and <a href="http://phantomjs.org/">PhantomJS</a>
@@ -117,8 +117,7 @@ brew update
 
 <p>Mac:</p>
 
-<pre><code>brew install chromedriver phantomjs
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>brew install chromedriver phantomjs</pre></div>
 
 <p>Windows: <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Download Chromedriver</a> and put it in your PATH. Next, <a href="https://bitbucket.org/ariya/phantomjs/downloads">Download PhantomJS</a> and also put that in your PATH.</p>
 
@@ -134,22 +133,29 @@ brew update
 <div class="highlight highlight-source-shell"><pre>git clone [LOCATION OF YOUR FORKED SELENIUMBASE GITHUB FOLDER]/SeleniumBase.git
 <span class="pl-c1">cd</span> SeleniumBase</pre></div>
 
-<p>(NOTE: If you decided to download SeleniumBase rather than Git-cloning it, you can skip the above step.)</p>
+<p>If you only need a local copy and don't plan on checking in any changes that you make, you can just clone the base repo as is:</p>
+
+<div class="highlight highlight-source-shell"><pre>git clone https://github.com/mdmintz/SeleniumBase.git</pre></div>
 
 <h4>
 <a id="step-2-create-a-virtualenv-for-seleniumbase" class="anchor" href="#step-2-create-a-virtualenv-for-seleniumbase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 2:</strong> Create a virtualenv for seleniumbase</h4>
 
-<p>Mac:</p>
+<p>Mac: (If you're using the old regular way):</p>
 
 <div class="highlight highlight-source-shell"><pre>mkdir -p <span class="pl-k">~</span>/Envs
 virtualenv <span class="pl-k">~</span>/Envs/seleniumbase
 <span class="pl-c1">source</span> <span class="pl-k">~</span>/Envs/seleniumbase/bin/activate</pre></div>
 
+<p>Mac: (If you're using the new fancy way):</p>
+
+<div class="highlight highlight-source-shell"><pre>mkvirtualenv seleniumbase</pre></div>
+
 <p>Windows:</p>
 
-<p>Same as above, except:
+<p>Use the "virtualenv" version above instead of "mkvirtualenv", but also make the following changes:
 1: Don't use "-p"
-2: Replace "~/" from above with the location of your home directory</p>
+2: Replace "~/" from above with the location of your home directory
+3: Instead of using the "source" command, go into the folder created and type <code>activate</code></p>
 
 <p>If you ever need to leave your virtual environment, use the following command:</p>
 
@@ -157,7 +163,13 @@ virtualenv <span class="pl-k">~</span>/Envs/seleniumbase
 
 <p>You can always jump back in later:</p>
 
+<p>(If you're using the old regular way):</p>
+
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">source</span> <span class="pl-k">~</span>/Envs/seleniumbase/bin/activate</pre></div>
+
+<p>(If you're using the new fancy way):</p>
+
+<div class="highlight highlight-source-shell"><pre>workon seleniumbase</pre></div>
 
 <h4>
 <a id="step-3-install-necessary-packages-from-the-seleniumbase-folder-and-compile-the-test-framework-from-within-your-virtual-environment" class="anchor" href="#step-3-install-necessary-packages-from-the-seleniumbase-folder-and-compile-the-test-framework-from-within-your-virtual-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 3:</strong> Install necessary packages from the SeleniumBase folder and compile the test framework (from within your virtual environment)</h4>

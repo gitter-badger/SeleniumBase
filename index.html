@@ -55,146 +55,48 @@
 <h4>
 <a id="step-0-get-the-requirements" class="anchor" href="#step-0-get-the-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0:</strong> Get the requirements</h4>
 
-<h4>
-<a id="python-27" class="anchor" href="#python-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://www.python.org/downloads/">Python 2.7</a>
-</h4>
+<p>If you don't already have <code>python</code>, <code>pip</code>, <code>git</code>, and either <code>virtualenv</code> or <code>virtualenvwrapper</code> installed and accessible from your terminal (command prompt), you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">follow these instructions</a> to get those installed.</p>
 
-<p>If you're a MAC user, that should already come preinstalled on your machine. Although Python 3 exists, you'll want Python 2 (both of these major versions are being improved in parallel). Python 2.7.10 is the one I've been using on my Mac.</p>
-
-<p>If you're a WINDOWS user, <a href="https://www.python.org/downloads/release/python-2710/">download the latest 2.* version from here</a>.</p>
-
-<h4>
-<a id="pip" class="anchor" href="#pip" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://en.wikipedia.org/wiki/Pip_%28package_manager%29">Pip</a>
-</h4>
-
-<p>If "pip" did not come with your Python installation, you can <a href="https://pip.pypa.io/en/latest/installing/">GET PIP HERE</a>, and make sure it's on your path.</p>
-
-<h4>
-<a id="homebrew--git-optional" class="anchor" href="#homebrew--git-optional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://brew.sh/">Homebrew</a> + <a href="http://git-scm.com/">Git</a> (OPTIONAL)</h4>
-
-<p>(NOTE: You can download the SeleniumBase repository right from GitHub and skip all the git-related commands. That's probably the fastest way if you want to quickly get a live demo of this tool up and running.)</p>
-
-<div class="highlight highlight-source-shell"><pre>ruby -e <span class="pl-s"><span class="pl-pds">"</span><span class="pl-s"><span class="pl-pds">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="pl-pds">)</span></span><span class="pl-pds">"</span></span>
-brew install git
-brew update</pre></div>
-
-<p>(WINDOWS users: Skip the Homebrew part and <a href="http://git-scm.com/download">download Git here</a>.)</p>
-
-<h4>
-<a id="mysql-optional" class="anchor" href="#mysql-optional" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://www.mysql.com/">MySQL</a> (OPTIONAL)</h4>
-
-<p>(NOTE: If you're using this test framework from a local development machine and don't plan on writing to a MySQL DB from your local test runs, you can skip this step.)</p>
-
-<p>Mac:</p>
-
-<div class="highlight highlight-source-shell"><pre>brew install MySQL</pre></div>
-
-<p>Windows: <a href="http://dev.mysql.com/downloads/windows/">Download MySQL here</a></p>
-
-<p>That installs the MySQL library so that you can use db commands in your code. To make that useful, you'll want to have a MySQL DB that you can connect to. You'll also want to use the testcaserepository.sql file from the seleniumbase/core folder to add the necessary tables.</p>
-
-<p>If you want a visual tool to help make your MySQL life easier, <a href="http://dev.mysql.com/downloads/workbench/">try MySQL Workbench</a>.)</p>
-
-<h4>
-<a id="virtualenv" class="anchor" href="#virtualenv" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="http://virtualenv.readthedocs.org/en/latest/">Virtualenv</a>
-</h4>
-
-<p>Mac: (The old regular way):</p>
-
-<div class="highlight highlight-source-shell"><pre>sudo easy_install virtualenv</pre></div>
-
-<p>Mac: (The new fancy way):</p>
-
-<div class="highlight highlight-source-shell"><pre>sudo easy_install virtualenvwrapper</pre></div>
-
-<p>Windows:</p>
-
-<div class="highlight highlight-source-shell"><pre>pip install virtualenv</pre></div>
+<p>If you plan on storing data in a MySQL DB (OPTIONAL), you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/mysql_installation.md">follow these instructions</a> to get that installed.</p>
 
 <h4>
 <a id="chromedriver-and-phantomjs" class="anchor" href="#chromedriver-and-phantomjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://sites.google.com/a/chromium.org/chromedriver/">Chromedriver</a> and <a href="http://phantomjs.org/">PhantomJS</a>
 </h4>
 
+<p>If you want to run automation on browsers other than Firefox (such as Chrome), you'll need to download drivers for those separately, and that means you may need to install <code>brew</code> (aka <code>homebrew</code>) if you're using a Mac. You may have previously installed <code>brew</code> if you used that a few steps above to install <code>git</code>.</p>
+
 <p>Mac:</p>
 
 <div class="highlight highlight-source-shell"><pre>brew install chromedriver phantomjs</pre></div>
 
-<p>Windows: <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Download Chromedriver</a> and put it in your PATH. Next, <a href="https://bitbucket.org/ariya/phantomjs/downloads">Download PhantomJS</a> and also put that in your PATH.</p>
-
-<p>(NOTE: There are web drivers for other web browsers as well. These two will get you started.)</p>
-
-<p>If you haven't already, you'll want to <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a> and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Download Chrome</a> or <a href="https://download-chromium.appspot.com/">Download Chromium</a>.</p>
+<p>Windows: <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Download Chromedriver</a> and put it in your PATH. Next, <a href="https://bitbucket.org/ariya/phantomjs/downloads">Download PhantomJS</a> (OPTIONAL - if you want to run headless browser automation) and also put that in your PATH.
+If you haven't already, you'll want to <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a> and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Download Chrome</a> or <a href="https://download-chromium.appspot.com/">Download Chromium</a>.</p>
 
 <h4>
 <a id="step-1-download-or-clone-seleniumbase-to-your-local-machine" class="anchor" href="#step-1-download-or-clone-seleniumbase-to-your-local-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 1:</strong> Download or Clone SeleniumBase to your local machine</h4>
 
-<p>If you're using Git, you can fork the repository on GitHub to create your personal copy. This is important because you'll want to add your own configurations, credentials, settings, etc. Now you can clone your forked copy to your personal computer. You can use a tool such as <a href="http://www.sourcetreeapp.com/">SourceTree</a> to make things easier by providing you with a simple-to-use user interface for viewing and managing your git commits and status.</p>
-
-<div class="highlight highlight-source-shell"><pre>git clone [LOCATION OF YOUR FORKED SELENIUMBASE GITHUB FOLDER]/SeleniumBase.git
+<div class="highlight highlight-source-shell"><pre>git clone https://github.com/mdmintz/SeleniumBase.git
 <span class="pl-c1">cd</span> SeleniumBase</pre></div>
 
-<p>If you only need a local copy and don't plan on checking in any changes that you make, you can just clone the base repo as is:</p>
-
-<div class="highlight highlight-source-shell"><pre>git clone https://github.com/mdmintz/SeleniumBase.git</pre></div>
+<p>(You can use a tool such as <a href="http://www.sourcetreeapp.com/">SourceTree</a> to make things easier by providing you with a simple-to-use user interface for viewing and managing your git commits and status.)</p>
 
 <h4>
-<a id="step-2-create-a-virtualenv-for-seleniumbase" class="anchor" href="#step-2-create-a-virtualenv-for-seleniumbase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 2:</strong> Create a virtualenv for seleniumbase</h4>
+<a id="step-2-create-a-virtualenv-for-seleniumbase-and-activate-it" class="anchor" href="#step-2-create-a-virtualenv-for-seleniumbase-and-activate-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 2:</strong> Create a virtualenv for seleniumbase and activate it</h4>
 
-<p>Mac: (If you're using the old regular way):</p>
-
-<div class="highlight highlight-source-shell"><pre>mkdir -p <span class="pl-k">~</span>/Envs
-virtualenv <span class="pl-k">~</span>/Envs/seleniumbase
-<span class="pl-c1">source</span> <span class="pl-k">~</span>/Envs/seleniumbase/bin/activate</pre></div>
-
-<p>Mac: (If you're using the new fancy way):</p>
-
-<div class="highlight highlight-source-shell"><pre>mkvirtualenv seleniumbase</pre></div>
-
-<p>Windows:</p>
-
-<p>Use the "virtualenv" version above instead of "mkvirtualenv", but also make the following changes:
-1: Don't use "-p"
-2: Replace "~/" from above with the location of your home directory
-3: Instead of using the "source" command, go into the folder created and type <code>activate</code></p>
-
-<p>If you ever need to leave your virtual environment, use the following command:</p>
-
-<div class="highlight highlight-source-shell"><pre>deactivate</pre></div>
-
-<p>You can always jump back in later:</p>
-
-<p>(If you're using the old regular way):</p>
-
-<div class="highlight highlight-source-shell"><pre><span class="pl-c1">source</span> <span class="pl-k">~</span>/Envs/seleniumbase/bin/activate</pre></div>
-
-<p>(If you're using the new fancy way):</p>
-
-<div class="highlight highlight-source-shell"><pre>workon seleniumbase</pre></div>
+<p>If you're not sure how to create a virtual environment, <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/virtualenv_instructions.md">follow these instructions</a> to learn how.</p>
 
 <h4>
 <a id="step-3-install-necessary-packages-from-the-seleniumbase-folder-and-compile-the-test-framework-from-within-your-virtual-environment" class="anchor" href="#step-3-install-necessary-packages-from-the-seleniumbase-folder-and-compile-the-test-framework-from-within-your-virtual-environment" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 3:</strong> Install necessary packages from the SeleniumBase folder and compile the test framework (from within your virtual environment)</h4>
 
-<p>If you don't desire connecting to a MySQL DB to record the results of your local test runs, run this command:</p>
-
 <div class="highlight highlight-source-shell"><pre>pip install -r requirements.txt</pre></div>
-
-<p>The "-e ." at the end of requirements.txt should automatically trigger setup.py installation from the following command:</p>
 
 <div class="highlight highlight-source-shell"><pre>python setup.py install</pre></div>
 
-<p>If you do desire connecting to a MySQL DB to record the results of your test runs, run this command: (Make sure you already have MySQL installed from either Brew or web-download. If you're a WINDOWS user, you may have problems on the MySQL installation part. To get around this, you can either follow the instructions from the error message given, or you can pip install the previous requirements.txt file.)</p>
+<p>If you want to connect to a MySQL DB to record the results of your test runs, run this command: (Make sure you already have MySQL installed from either Brew or web-download. If you're a WINDOWS user, you may have problems on the MySQL installation part. To get around this, you can either follow the instructions from the error message given, or you can pip install the previous requirements.txt file.)</p>
 
-<div class="highlight highlight-source-shell"><pre>pip install -r server_requirements.txt</pre></div>
-
-<p>As mentioned before, the "-e ." in that file should automatically trigger installation of setup.py</p>
+<div class="highlight highlight-source-shell"><pre>pip install -r server_requirements.txt  <span class="pl-c"># For MySQL DB usage ONLY!</span></pre></div>
 
 <p>NOTE:</p>
-
-<p>(From a virtual environment, it should not be necessary to add "sudo" before those commands above.)</p>
-
-<p>In some cames, certain packages will have other dependencies as requirements, and those will get installed automatically. You'll be able to see all installed packages in your virtual environment by using the following command:</p>
-
-<div class="highlight highlight-source-shell"><pre>pip freeze</pre></div>
 
 <p>By default, some files may be hidden on a MAC, such as .gitignore (which is used to tell Git which files to ignore for staging commits). To view all files from the Finder window, run the following command in a terminal window:</p>
 

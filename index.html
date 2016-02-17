@@ -129,17 +129,17 @@
 
     <span class="pl-k">def</span> <span class="pl-en">test_basic</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
         <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/353/<span class="pl-pds">"</span></span>)
-        <span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>div#comic<span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.wait_for_element(<span class="pl-s"><span class="pl-pds">"</span>div#comic<span class="pl-pds">"</span></span>)
         <span class="pl-v">self</span>.click(<span class="pl-s"><span class="pl-pds">'</span>a[rel="license"]<span class="pl-pds">'</span></span>)
-        text <span class="pl-k">=</span> <span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">'</span>center<span class="pl-pds">'</span></span>).text
+        text <span class="pl-k">=</span> <span class="pl-v">self</span>.wait_for_element(<span class="pl-s"><span class="pl-pds">'</span>center<span class="pl-pds">'</span></span>).text
         <span class="pl-v">self</span>.assertTrue(<span class="pl-s"><span class="pl-pds">"</span>reuse any of my drawings<span class="pl-pds">"</span></span> <span class="pl-k">in</span> text)
         <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/1481/<span class="pl-pds">"</span></span>)
         <span class="pl-v">self</span>.click_link_text(<span class="pl-s"><span class="pl-pds">'</span>Blag<span class="pl-pds">'</span></span>)
-        <span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>The blag<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>header h2<span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.wait_for_text(<span class="pl-s"><span class="pl-pds">"</span>The blag<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>header h2<span class="pl-pds">"</span></span>)
         <span class="pl-v">self</span>.update_text(<span class="pl-s"><span class="pl-pds">"</span>input#s<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Robots!<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>)
-        <span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Hooray robots!<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>#content<span class="pl-pds">"</span></span>)
+        <span class="pl-v">self</span>.wait_for_text(<span class="pl-s"><span class="pl-pds">"</span>Hooray robots!<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>#content<span class="pl-pds">"</span></span>)
         <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/1319/<span class="pl-pds">"</span></span>)
-        <span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Automation<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>div#ctitle<span class="pl-pds">"</span></span>)</pre></div>
+        <span class="pl-v">self</span>.wait_for_text(<span class="pl-s"><span class="pl-pds">"</span>Automation<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>div#ctitle<span class="pl-pds">"</span></span>)</pre></div>
 
 <p>Now try running the script (from the "examples" folder) using various web browsers:</p>
 
@@ -236,7 +236,7 @@ You can simplify that even more by using a setup.cfg file, such as the one provi
 
     <span class="pl-k">def</span> <span class="pl-en">test_find_army_of_robots_on_xkcd_desert_island</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
         <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/731/<span class="pl-pds">"</span></span>)
-        <span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>div#ARMY_OF_ROBOTS<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">3</span>)  <span class="pl-c"># This should fail</span></pre></div>
+        <span class="pl-v">self</span>.wait_for_element(<span class="pl-s"><span class="pl-pds">"</span>div#ARMY_OF_ROBOTS<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">3</span>)  <span class="pl-c"># This should fail</span></pre></div>
 
 <p>Now run it:</p>
 
@@ -285,9 +285,11 @@ everything_inside_first_image_tags <span class="pl-k">=</span> source[first_imag
 
 <div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>a.my_class<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">5</span>)</pre></div>
 
+<p>(NOTE: The short version of this is <code>self.wait_for_element(ELEMENT)</code>)</p>
+
 <p>Since the line above returns the element, you can combine that with .click() as shown below:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>a.my_class<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">5</span>).click()
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_element(<span class="pl-s"><span class="pl-pds">"</span>a.my_class<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">5</span>).click()
 
 <span class="pl-c"># But you're better off using the following statement, which does the same thing:</span>
 
@@ -298,6 +300,8 @@ everything_inside_first_image_tags <span class="pl-k">=</span> source[first_imag
 
 <div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Make it so!<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>div#trek div.picard div.quotes<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">3</span>)
 <span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Tea. Earl Grey. Hot.<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>div#trek div.picard div.quotes<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">1</span>)</pre></div>
+
+<p>(NOTE: The short version of this is <code>self.wait_for_text(TEXT, ELEMENT)</code>)</p>
 
 <h4>
 <a id="asserting-anything" class="anchor" href="#asserting-anything" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asserting Anything</h4>
@@ -364,7 +368,7 @@ everything_inside_first_image_tags <span class="pl-k">=</span> source[first_imag
 If you want to type in special keys, that's easy too. Here's an example:</p>
 
 <div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> selenium.webdriver.common.keys <span class="pl-k">import</span> Keys
-<span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>textarea<span class="pl-pds">"</span></span>).send_keys(Keys.<span class="pl-c1">SPACE</span> <span class="pl-k">+</span> Keys.<span class="pl-c1">BACK_SPACE</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span><span class="pl-pds">'</span></span>)  <span class="pl-c"># the backspace should cancel out the space, leaving you with the newline</span></pre></div>
+<span class="pl-v">self</span>.wait_for_element(<span class="pl-s"><span class="pl-pds">"</span>textarea<span class="pl-pds">"</span></span>).send_keys(Keys.<span class="pl-c1">SPACE</span> <span class="pl-k">+</span> Keys.<span class="pl-c1">BACK_SPACE</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span><span class="pl-pds">'</span></span>)  <span class="pl-c"># the backspace should cancel out the space, leaving you with the newline</span></pre></div>
 
 <h4>
 <a id="switching-tabs" class="anchor" href="#switching-tabs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Switching Tabs</h4>
@@ -516,7 +520,7 @@ Feel free to check out other exciting open source projects on GitHub:
 <h3>
 <a id="legal-disclaimer" class="anchor" href="#legal-disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Legal Disclaimer</h3>
 
-<p>Automation is a powerful tool. It allows you to take full control of web browsers and do almost anything that a human could do, but faster. It can be used for both good and evil. With great power comes great responsibility. You are fully responsible for how you use this framework and the automation that you create. You may also want to see an expert when it comes to setting up your automation environment if you require assistance.</p>
+<p>Automation is a powerful thing. It allows you to take full control of web browsers and do almost anything that a human could do, but faster. It can be used for both good and evil. With great power comes great responsibility. You are fully responsible for how you use this framework and the automation that you create. You may also want to see a professional when it comes to setting up your automation environment if you require assistance.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/mdmintz/SeleniumBase">SeleniumBase</a> is maintained by <a href="https://github.com/mdmintz">mdmintz</a>.</span>

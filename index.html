@@ -47,27 +47,27 @@
 <a id="part-i-mac-setup-instructions" class="anchor" href="#part-i-mac-setup-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Part I: MAC SETUP INSTRUCTIONS</h3>
 
 <h4>
-<a id="windows-users-youll-need-to-make-a-few-modifications-to-the-setup-steps-listed-here-for-starters-you-wont-be-able-to-use-the-brew-install-command-since-thats-mac-only-instead-download-the-requirements-mentioned-directly-from-the-web-ill-provide-you-with-links-to-save-you-time-youll-also-want-to-put-downloaded-files-into-your-path" class="anchor" href="#windows-users-youll-need-to-make-a-few-modifications-to-the-setup-steps-listed-here-for-starters-you-wont-be-able-to-use-the-brew-install-command-since-thats-mac-only-instead-download-the-requirements-mentioned-directly-from-the-web-ill-provide-you-with-links-to-save-you-time-youll-also-want-to-put-downloaded-files-into-your-path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(WINDOWS users: You'll need to make a few modifications to the setup steps listed here. For starters, you won't be able to use the "brew install" command since that's MAC-only. Instead, download the requirements mentioned directly from the web. I'll provide you with links to save you time. You'll also want to put downloaded files into your <a href="http://java.com/en/download/help/path.xml">PATH</a>.)</h4>
+<a id="windows-users-ignore-the-brew-install-commands-thats-mac-only-instead-download-the-files-you-need-and-put-them-on-your-path" class="anchor" href="#windows-users-ignore-the-brew-install-commands-thats-mac-only-instead-download-the-files-you-need-and-put-them-on-your-path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(WINDOWS users: Ignore the "brew install" commands... that's MAC-only. Instead, download the files you need and put them on your <a href="http://java.com/en/download/help/path.xml">PATH</a>.)</h4>
 
 <h4>
-<a id="docker-users-if-you-want-to-run-browser-automation-with-docker-see-the-docker-readme" class="anchor" href="#docker-users-if-you-want-to-run-browser-automation-with-docker-see-the-docker-readme" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(DOCKER users: If you want to run browser automation with Docker, see the <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/docker/ReadMe.md">Docker ReadMe</a>)</h4>
+<a id="docker-users-see-the-docker-readme" class="anchor" href="#docker-users-see-the-docker-readme" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(DOCKER users: See the <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/docker/ReadMe.md">Docker ReadMe</a>)</h4>
 
 <h4>
 <a id="step-0a-get-basic-requirements" class="anchor" href="#step-0a-get-basic-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0a:</strong> Get basic requirements</h4>
 
-<p>If you don't already have <code>python</code>, <code>pip</code>, <code>git</code>, and either <code>virtualenv</code> or <code>virtualenvwrapper</code> installed and accessible from your terminal (command prompt), you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">follow these instructions</a> to get those installed.</p>
+<p>If you don't already have <code>python</code>, <code>pip</code>, <code>git</code>, and either <code>virtualenv</code> or <code>virtualenvwrapper</code> installed and accessible from your terminal (command prompt), you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">follow these instructions</a>.</p>
 
 <h4>
 <a id="step-0b-get-web-browsers-to-run-automation-on" class="anchor" href="#step-0b-get-web-browsers-to-run-automation-on" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0b:</strong> Get web browsers to run automation on</h4>
 
-<p>If you haven't already, you'll want to <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a> and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Download Chrome</a> or <a href="https://download-chromium.appspot.com/">Download Chromium</a>.</p>
+<p>If you haven't already, you'll want to <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a>. You can also <a href="https://www.google.com/chrome/browser/desktop/index.html">Download Chrome</a> or <a href="https://download-chromium.appspot.com/">Download Chromium</a> to run automation there.</p>
 
 <h4>
 <a id="step-0c-get-drivers-for-the-web-browsers-that-require-them" class="anchor" href="#step-0c-get-drivers-for-the-web-browsers-that-require-them" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0c:</strong> Get drivers for the web browsers that require them</h4>
 
-<p>If you want to run automation on browsers other than Firefox (such as Chrome), you'll need to download <a href="https://sites.google.com/a/chromium.org/chromedriver/">Chromedriver</a> and <a href="http://phantomjs.org/">PhantomJS</a> separately. (Firefox drivers are already included with Selenium by default)</p>
+<p>If you want to run automation on browsers other than Firefox (such as Chrome), you'll need to download <a href="https://sites.google.com/a/chromium.org/chromedriver/">Chromedriver</a> and <a href="http://phantomjs.org/">PhantomJS</a> separately. (Firefox drivers are already included with Selenium by default, which makes life a bit easier.)</p>
 
-<p>On a Mac you can install those drivers more easily by using <code>brew</code> (aka <code>homebrew</code>). You may have previously installed <code>brew</code> if you used that a few steps above to install <code>git</code>.</p>
+<p>On a Mac you can install those drivers more easily by using <code>brew</code> (aka <code>homebrew</code>), but you have to install that first. <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">Brew installation instructions are here</a>.</p>
 
 <p>Mac:</p>
 
@@ -90,10 +90,6 @@
 
 <p>(You can use a tool such as <a href="http://www.sourcetreeapp.com/">SourceTree</a> to make things easier by providing you with a simple-to-use user interface for viewing and managing your git commits and status.)</p>
 
-<p>Depending on your Mac settings, some files may be hidden from view in your Finder window, such as <code>.gitignore</code>. To view all files, run the following command and then reopen the Finder window:</p>
-
-<div class="highlight highlight-source-shell"><pre>defaults write com.apple.finder AppleShowAllFiles -bool <span class="pl-c1">true</span></pre></div>
-
 <h4>
 <a id="step-2-create-a-virtualenv-for-seleniumbase-and-activate-it" class="anchor" href="#step-2-create-a-virtualenv-for-seleniumbase-and-activate-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 2:</strong> Create a virtualenv for seleniumbase and activate it</h4>
 
@@ -107,6 +103,10 @@
 <div class="highlight highlight-source-shell"><pre>python setup.py install</pre></div>
 
 <p>If you wish to use the MySQL functionality with SeleniumBase to store test results and data in the database, you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/mysql_installation.md">follow these instructions</a>.</p>
+
+<p>SeleniumBase is <a href="https://pypi.python.org/pypi/seleniumbase">in Pypi</a>, which means you can also install it like this:</p>
+
+<div class="highlight highlight-source-shell"><pre>pip install seleniumbase</pre></div>
 
 <h4>
 <a id="step-4-verify-that-selenium-and-chromedriver-were-successfully-installed-by-checking-inside-a-python-command-prompt-note-xkcd-is-a-webcomic" class="anchor" href="#step-4-verify-that-selenium-and-chromedriver-were-successfully-installed-by-checking-inside-a-python-command-prompt-note-xkcd-is-a-webcomic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 4:</strong> Verify that Selenium and Chromedriver were successfully installed by checking inside a python command prompt. (NOTE: xkcd is a webcomic)</h4>
@@ -190,7 +190,7 @@ py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testi
 
 py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=firefox -s</pre></div>
 
-<p>(NOTE: I'm currently adding more pytest plugins to catch up with nosetests. The latest one added is "--with-testing_base", which gives you full logging on test failures for screenshots, page source, and basic test info. Coming soon: The DB and S3 plugins, which are already available with nosetests.)</p>
+<p>(NOTE: The <code>--with-testing_base</code> plugin gives you full logging on test failures for screenshots, page source, and basic test info.)</p>
 
 <h4>
 <a id="step-6-complete-the-setup" class="anchor" href="#step-6-complete-the-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 6:</strong> Complete the setup</h4>
@@ -209,19 +209,21 @@ Here are some more helpful resources I found regarding the use of Xvfb:</p></li>
 <li><a href="http://qxf2.com/blog/xvfb-plugin-for-jenkins-selenium/">http://qxf2.com/blog/xvfb-plugin-for-jenkins-selenium/</a></li>
 <li><p><a href="http://stackoverflow.com/questions/27202131/firefox-started-by-selenium-ignores-the-display-created-by-pyvirtualdisplay">http://stackoverflow.com/questions/27202131/firefox-started-by-selenium-ignores-the-display-created-by-pyvirtualdisplay</a></p></li>
 <li><p>If you use <a href="https://slack.com">Slack</a>, you can easily have your Jenkins jobs display results there by using the <a href="https://github.com/jenkinsci/slack-plugin">Jenkins Slack Plugin</a>. Another way to send messages from your tests to Slack is by using <a href="https://api.slack.com/incoming-webhooks">Slack's Incoming Webhooks API</a>.</p></li>
-<li><p>If you use <a href="https://www.hipchat.com/">HipChat</a>, you can easily have your Jenkins jobs display results there by using the <a href="https://wiki.jenkins-ci.org/display/JENKINS/HipChat+Plugin">Jenkins HipChat Plugin</a>. Another way is by using the hipchat_reporting plugin, which is included with this test framework.</p></li>
+<li><p>If you use <a href="https://www.hipchat.com/">HipChat</a>, you can easily have your Jenkins jobs display results there by using the <a href="https://wiki.jenkins-ci.org/display/JENKINS/HipChat+Plugin">Jenkins HipChat Plugin</a>. Another way is by using the <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/plugins/hipchat_reporting_plugin.py">hipchat_reporting plugin</a> (nosetests only).</p></li>
 <li><p>Be sure to tell SeleniumBase to use these added features when you set them up. That's easy to do. You would be running tests like this:</p></li>
 </ul>
 
-<div class="highlight highlight-source-shell"><pre>nosetests [YOUR_TEST_FILE].py --browser=chrome --with-selenium --with-testing_base --with-basic_test_info --with-page_source --with-screen_shots --with-db_reporting --with-s3_logging -s</pre></div>
+<div class="highlight highlight-source-shell"><pre>nosetests [YOUR_TEST_FILE].py --browser=chrome --with-selenium --with-testing_base --with-db_reporting --with-s3_logging -s</pre></div>
 
-<p>(When the testing_base plugin is used, if there's a test failure, the basic_test_info plugin records test logs, the page_source plugin records the page source of the last web page seen by the test, and the screen_shots plugin records the image of the last page seen by the test where the failure occurred. Make sure you always include testing_base whenever you include a plugin that logs test data. The db_reporting plugin records the status of all tests as long as you've setup your MySQL DB properly and you've also updated your seleniumbase/core/mysql_conf.py file with your DB credentials.)
-To simplify that long run command, you can create a *.cfg file, such as the one provided in the example, and enter your plugins there so that you can run everything by typing:</p>
+<p>(NOTE: Don't use <code>--with-db_reporting</code> or <code>--with-s3_logging</code> if you haven't configured your MySQL or S3 connections in <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">settings.py</a>)</p>
+
+<p>When the testing_base plugin is used, if there's a test failure, the basic_test_info plugin records test logs, the page_source plugin records the page source of the last web page seen by the test, and the screen_shots plugin records the image of the last page seen by the test where the failure occurred. Make sure you always include testing_base whenever you include a plugin that logs test data. The db_reporting plugin records the status of all tests run into your MySQL DB. The s3_logging plugin uploads basic test info, screenshots, and page source into your S3 storage folder.</p>
+
+<p>To simplify that long run command, you can create a *.cfg file, such as the one provided in the example, and enter your plugins there so that you can run everything by typing:</p>
 
 <div class="highlight highlight-source-shell"><pre>nosetests [YOUR_TEST_FILE].py --config=[MY_CONFIG_FILE].cfg -s</pre></div>
 
-<p>So much easier on the eyes :)
-You can simplify that even more by using a setup.cfg file, such as the one provided for you in the examples folder. If you kick off a test run from within the folder that setup.cfg is location in, that file will automatically be used as your configuration, meaning that you wouldn't have to type out all the plugins that you want to use (or include a config file) everytime you run tests.</p>
+<p>You can simplify that even more by using a setup.cfg file, such as the one provided for you in the examples folder. If you kick off a test run from within the folder that setup.cfg is location in, that file will automatically be used as your configuration, meaning that you wouldn't have to type out all the plugins that you want to use (or include a config file) everytime you run tests.</p>
 
 <p>If you tell nosetests to run an entire file, it will run every method in that python file that starts with "test". You can be more specific on what to run by doing something like:</p>
 
@@ -240,7 +242,7 @@ You can simplify that even more by using a setup.cfg file, such as the one provi
 
 <p>Now run it:</p>
 
-<div class="highlight highlight-source-shell"><pre>nosetests test_fail.py --browser=chrome --with-selenium --with-testing_base --with-basic_test_info --with-page_source --with-screen_shots -s</pre></div>
+<div class="highlight highlight-source-shell"><pre>nosetests test_fail.py --browser=chrome --with-selenium --with-testing_base -s</pre></div>
 
 <p>You'll notice that a logs folder was created to hold information about the failing test, and screenshots. Take a look at what you get. Remember, this data can be saved in your MySQL DB and in S3 if you include the necessary plugins in your run command (and if you set up the neccessary connections properly). For future test runs, past test results will get stored in the archived_logs folder.</p>
 
@@ -483,7 +485,7 @@ email_manager <span class="pl-k">=</span> EmailManager(<span class="pl-s"><span 
                                <span class="pl-s"><span class="pl-pds">"</span>theValue<span class="pl-pds">"</span></span>:theValue,
                                <span class="pl-s"><span class="pl-pds">"</span>theUrl<span class="pl-pds">"</span></span>:theUrl})</pre></div>
 
-<p>Access credentials are stored in your library file for your convenience (you have to add them first).</p>
+<p>Access credentials are stored in <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">settings.py</a> for your convenience (you have to add them first).</p>
 
 <p>The following example below (taken from the Delayed Data Manager) shows how data can be pulled from the database.</p>
 

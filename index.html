@@ -47,7 +47,7 @@
 <a id="part-i-mac-setup-instructions" class="anchor" href="#part-i-mac-setup-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Part I: MAC SETUP INSTRUCTIONS</h3>
 
 <h4>
-<a id="windows-users-ignore-the-brew-install-commands-thats-mac-only-instead-download-the-files-you-need-and-put-them-on-your-path" class="anchor" href="#windows-users-ignore-the-brew-install-commands-thats-mac-only-instead-download-the-files-you-need-and-put-them-on-your-path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(WINDOWS users: Ignore the "brew install" commands... that's MAC-only. Instead, download the files you need and put them on your <a href="http://java.com/en/download/help/path.xml">PATH</a>.)</h4>
+<a id="windows-users-ignore-brew-install-which-is-mac-only-instead-download-the-files-you-need-and-put-them-on-your-path" class="anchor" href="#windows-users-ignore-brew-install-which-is-mac-only-instead-download-the-files-you-need-and-put-them-on-your-path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(WINDOWS users: Ignore <code>brew install</code>, which is MAC-only. Instead, download the files you need and put them on your <a href="http://java.com/en/download/help/path.xml">PATH</a>.)</h4>
 
 <h4>
 <a id="docker-users-see-the-docker-readme" class="anchor" href="#docker-users-see-the-docker-readme" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(DOCKER users: See the <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/docker/ReadMe.md">Docker ReadMe</a>)</h4>
@@ -102,7 +102,7 @@
 
 <div class="highlight highlight-source-shell"><pre>python setup.py install</pre></div>
 
-<p>If you wish to use the MySQL functionality with SeleniumBase to store test results and data in the database, you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/mysql_installation.md">follow these instructions</a>.</p>
+<p>If you wish to use the MySQL functionality with SeleniumBase to store test results and data in the database, you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/mysql_installation.md">follow these instructions</a>. If you make any changes to your local version of SeleniumBase, you may need to run <code>python setup.py install</code> each time for those changes to take effect.</p>
 
 <p>SeleniumBase is <a href="https://pypi.python.org/pypi/seleniumbase">in Pypi</a>, which means you can also install it like this:</p>
 
@@ -157,6 +157,8 @@ You can add <code>--demo_mode</code> on the command line, which pauses the brows
 <div class="highlight highlight-source-shell"><pre>nosetests my_first_test.py --with-selenium -s --demo_mode</pre></div>
 
 <p>You can override the default wait time by either updating <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">settings.py</a> or by using <code>--demo_sleep={NUM}</code> when using Demo Mode. (NOTE: If you use <code>--demo_sleep={NUM}</code> without using <code>--demo_mode</code>, nothing will happen.)</p>
+
+<p>If you ever make any changes to your local copy of <code>settings.py</code>, you may need to run <code>python setup.py install</code> for those changes to take effect.</p>
 
 <div class="highlight highlight-source-shell"><pre>nosetests my_first_test.py --with-selenium -s --demo_mode --demo_sleep=1.2</pre></div>
 

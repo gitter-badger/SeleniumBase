@@ -81,6 +81,8 @@
 <li>For everything you download, put those files in your PATH. (<code>Environmental Variables</code> on a Windows machine)</li>
 </ul>
 
+<p>If you want to verify that you successfully installed the web drivers, <strong><a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/verify_webdriver.md">follow these instructions</a></strong>.</p>
+
 <h4>
 <a id="step-1-download-or-clone-seleniumbase-to-your-local-machine" class="anchor" href="#step-1-download-or-clone-seleniumbase-to-your-local-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 1:</strong> Download or Clone SeleniumBase to your local machine</h4>
 
@@ -108,17 +110,7 @@
 <div class="highlight highlight-source-shell"><pre>pip install seleniumbase</pre></div>
 
 <h4>
-<a id="step-4-verify-that-selenium-and-chromedriver-were-successfully-installed-by-checking-inside-a-python-command-prompt-note-xkcd-is-a-webcomic" class="anchor" href="#step-4-verify-that-selenium-and-chromedriver-were-successfully-installed-by-checking-inside-a-python-command-prompt-note-xkcd-is-a-webcomic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 4:</strong> Verify that Selenium and Chromedriver were successfully installed by checking inside a python command prompt. (NOTE: xkcd is a webcomic)</h4>
-
-<div class="highlight highlight-source-shell"><pre>python
-<span class="pl-k">&gt;&gt;&gt;</span> from selenium import webdriver
-<span class="pl-k">&gt;&gt;&gt;</span> browser = <span class="pl-en">webdriver.Chrome</span>()
-<span class="pl-k">&gt;&gt;&gt;</span> browser.get(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/1337/<span class="pl-pds">"</span></span>)
-<span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-en">browser.close</span>()
-<span class="pl-k">&gt;&gt;&gt;</span> <span class="pl-en">exit</span>()</pre></div>
-
-<h4>
-<a id="step-5-verify-that-seleniumbase-was-successfully-installed-by-running-the-example-test" class="anchor" href="#step-5-verify-that-seleniumbase-was-successfully-installed-by-running-the-example-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 5:</strong> Verify that SeleniumBase was successfully installed by running the example test</h4>
+<a id="step-4-verify-that-seleniumbase-was-successfully-installed-by-running-the-example-test" class="anchor" href="#step-4-verify-that-seleniumbase-was-successfully-installed-by-running-the-example-test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 4:</strong> Verify that SeleniumBase was successfully installed by running the example test</h4>
 
 <p>You can verify the installation of SeleniumBase by running a simple script to perform basic actions such as navigating to a web page, clicking, waiting for page elements to appear, typing in text, scraping text on a page, and verifying text. This may be a good time to read up on CSS selectors. If you use Chrome, you can right-click on a page and select "Inspect Element" to see the details you need to create such a script. With CSS selectors, dots represent class names and pound signs represent IDs.</p>
 
@@ -194,7 +186,7 @@ py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testi
 <p>(NOTE: The <code>--with-testing_base</code> plugin gives you full logging on test failures for screenshots, page source, and basic test info.)</p>
 
 <h4>
-<a id="step-6-complete-the-setup" class="anchor" href="#step-6-complete-the-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 6:</strong> Complete the setup</h4>
+<a id="step-5-complete-the-setup" class="anchor" href="#step-5-complete-the-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 5:</strong> Complete the setup</h4>
 
 <p>If you're planning on using the full power of this test framework, there are a few more things you'll want to do:</p>
 

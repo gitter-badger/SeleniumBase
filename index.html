@@ -105,7 +105,7 @@
 
 <p>If you wish to use the MySQL functionality with SeleniumBase to store test results and data in the database, you'll need to <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/mysql_installation.md">follow these instructions</a>. If you make any changes to your local version of SeleniumBase, you may need to run <code>python setup.py install</code> each time for those changes to take effect.</p>
 
-<p>SeleniumBase is <a href="https://pypi.python.org/pypi/seleniumbase">in Pypi</a>, which means you can also install it like this:</p>
+<p><a href="https://pypi.python.org/pypi/seleniumbase">SeleniumBase is in Pypi</a>, which means you can also install it like this:</p>
 
 <div class="highlight highlight-source-shell"><pre>pip install seleniumbase</pre></div>
 
@@ -134,11 +134,13 @@
 
 <p>Now try running the script (from the "examples" folder) using various web browsers:</p>
 
-<div class="highlight highlight-source-shell"><pre>nosetests my_first_test.py --browser=chrome --with-selenium -s
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> examples/
 
-nosetests my_first_test.py --browser=phantomjs --with-selenium -s
+nosetests my_first_test.py --browser=firefox --with-selenium -s
 
-nosetests my_first_test.py --browser=firefox --with-selenium -s</pre></div>
+nosetests my_first_test.py --browser=chrome --with-selenium -s
+
+nosetests my_first_test.py --browser=phantomjs --with-selenium -s</pre></div>
 
 <p>After the test completes, in the console output you'll see a dot (<code>.</code>) on a new line, representing a passing test. (On test failures you'll see an <code>F</code> instead, and on test errors you'll see an <code>E</code>). It looks more like a moving progress bar when you're running a ton of unit tests side by side. This is part of nosetests. After all tests complete (in this case there is only one), you'll see the "<code>Ran 1 test in ...</code>" line, followed by an "<code>OK</code>" if all nosetests passed.</p>
 

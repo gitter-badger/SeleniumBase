@@ -114,6 +114,8 @@
 
 <p>You can verify the installation of SeleniumBase by running a simple script to perform basic actions such as navigating to a web page, clicking, waiting for page elements to appear, typing in text, scraping text on a page, and verifying text. This may be a good time to read up on CSS selectors. If you use Chrome, you can right-click on a page and select "Inspect Element" to see the details you need to create such a script. With CSS selectors, dots represent class names and pound signs represent IDs.</p>
 
+<p>Here's the first example script that you'll be running:</p>
+
 <div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> seleniumbase <span class="pl-k">import</span> BaseCase
 
 <span class="pl-k">class</span> <span class="pl-en">MyTestClass</span>(<span class="pl-e">BaseCase</span>):
@@ -132,7 +134,7 @@
         <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/1319/<span class="pl-pds">"</span></span>)
         <span class="pl-v">self</span>.wait_for_text(<span class="pl-s"><span class="pl-pds">"</span>Automation<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>div#ctitle<span class="pl-pds">"</span></span>)</pre></div>
 
-<p>Now try running the script (from the "examples" folder) using various web browsers:</p>
+<p>Here's how to run the example script using various web browsers:</p>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> examples/
 
@@ -194,7 +196,7 @@ py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testi
 
 <ul>
 <li><p>Setup your <a href="http://jenkins-ci.org/">Jenkins</a> build server for running your tests at regular intervals. (Or you can use any build server you want.)</p></li>
-<li><p>Setup an <a href="http://aws.amazon.com/s3/">Amazon S3</a> account for saving your log files and screenshots for future viewing. This test framework already has the code you need to connect to it. (Modify the s3_manager.py file from the seleniumbase/core folder with connection details to your instance.)</p></li>
+<li><p>Setup an <a href="http://aws.amazon.com/s3/">Amazon S3</a> account for saving your log files and screenshots for future viewing. This test framework already has the code you need to connect to it. (Modify <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">settings.py</a> with connection details to your instance.)</p></li>
 <li><p>Install <a href="http://dev.mysql.com/downloads/tools/workbench/">MySQL Workbench</a> to make life easier by giving you a nice GUI tool that you can use to read &amp; write from your DB directly.</p></li>
 <li><p>Setup your Selenium Grid and update your *.cfg file to point there. An example config file called selenium_server_config_example.cfg has been provided for you in the integrations/selenium_grid folder. The start-selenium-node.bat and start-selenium-server.sh files are for running your grid. In an example situation, your Selenium Grid server might live on a unix box and your Selenium Grid nodes might live on EC2 Windows virtual machines. When your build server runs a Selenium test, it would connect to your Selenium Grid to find out which Grid browser nodes are available to run that test. To simplify things, you can use <a href="https://www.browserstack.com/automate">Browser Stack</a> as your entire Selenium Grid (and let them do all the fun work of maintaining the grid for you).</p></li>
 <li><p>There are ways of running your tests from Jenkins without having to utilize a remote machine. One way is by using PhantomJS as your browser (it runs headlessly). Another way is by using Xvfb (another headless system). <a href="https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin">There's a plugin for Xvfb in Jenkins</a>.

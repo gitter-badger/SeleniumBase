@@ -23,7 +23,7 @@
 
 <p><a href="https://pypi.python.org/pypi/seleniumbase"><img src="https://img.shields.io/pypi/v/seleniumbase.svg" alt="pypi"></a> <a href="https://travis-ci.org/mdmintz/SeleniumBase"><img src="https://travis-ci.org/mdmintz/SeleniumBase.svg?branch=master" alt="Build Status"></a> <a href="https://github.com/mdmintz/seleniumbase"><img src="https://img.shields.io/github/stars/mdmintz/seleniumbase.svg" alt="GitHub stars" title="GitHub stars"></a></p>
 
-<p>A simple, fast solution for reliable browser automation and testing.</p>
+<p>A reliable solution for fast &amp; simple browser automation and testing.</p>
 
 <p><img src="http://cdn2.hubspot.net/hubfs/100006/images/automation2.gif" alt="" title="SeleniumBase"></p>
 
@@ -381,17 +381,17 @@ If you want to type in special keys, that's easy too. Here's an example:</p>
 <p>What if your test opens up a new tab/window and now you have more than one page? No problem. You need to specify which one you currently want Selenium to use. Switching between tabs/windows is easy:
 Ex:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.driver.switch_to_window(<span class="pl-v">self</span>.driver.window_handles[<span class="pl-c1">1</span>])  <span class="pl-c"># this switches to the new tab</span></pre></div>
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.driver.switch_to.window(<span class="pl-v">self</span>.driver.window_handles[<span class="pl-c1">1</span>])  <span class="pl-c"># this switches to the new tab</span></pre></div>
 
 <p>driver.window_handles is a list that will continually get updated when new windows/tabs appear (index numbering is auto-incrementing from 0, which represents the main window)</p>
 
 <p><strong>ProTip™:</strong> iFrames follow the same principle as new windows - you need to specify the iFrame if you want to take action on something in there
 Ex:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.driver.switch_to_frame(<span class="pl-s"><span class="pl-pds">'</span>ContentManagerTextBody_ifr<span class="pl-pds">'</span></span>)
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.driver.switch_to.frame(<span class="pl-s"><span class="pl-pds">'</span>ContentManagerTextBody_ifr<span class="pl-pds">'</span></span>)
 <span class="pl-c"># Now you can act inside the iFrame</span>
 <span class="pl-c"># Do something cool (here)</span>
-<span class="pl-v">self</span>.driver.switch_to_default_content()  <span class="pl-c"># exit the iFrame when you're done</span></pre></div>
+<span class="pl-v">self</span>.driver.switch_to.default_content()  <span class="pl-c"># exit the iFrame when you're done</span></pre></div>
 
 <h4>
 <a id="handle-pop-up-alerts" class="anchor" href="#handle-pop-up-alerts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Handle Pop-Up Alerts</h4>

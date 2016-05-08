@@ -194,6 +194,12 @@ py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testi
 
 <p>(NOTE: The <code>--with-testing_base</code> plugin gives you full logging on test failures for screenshots, page source, and basic test info.)</p>
 
+<p>The <code>--report</code> option gives you a fancy report after your test suite completes. (Requires <code>--with-testing_base</code>) (nosetest-only for now)</p>
+
+<div class="highlight highlight-source-shell"><pre>nosetests my_test_suite.py --with-selenium --with-testing_base --report -s</pre></div>
+
+<p>(Note: You can add <code>--hide_report</code> to immediately archive the report rather than displaying it after the test suite completes.)</p>
+
 <h4>
 <a id="step-5-complete-the-setup" class="anchor" href="#step-5-complete-the-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 5:</strong> Complete the setup</h4>
 

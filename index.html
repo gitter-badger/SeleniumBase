@@ -21,7 +21,7 @@
     <section class="main-content">
       <p><img src="http://cdn2.hubspot.net/hubfs/100006/images/SB_Logo2c.png" alt="" title="SeleniumBase"></p>
 
-<p><a href="https://pypi.python.org/pypi/seleniumbase"><img src="https://img.shields.io/pypi/v/seleniumbase.svg" alt="pypi"></a> <a href="https://travis-ci.org/mdmintz/SeleniumBase"><img src="https://travis-ci.org/mdmintz/SeleniumBase.svg?branch=master" alt="Build Status"></a> <a href="https://github.com/mdmintz/seleniumbase"><img src="https://img.shields.io/github/stars/mdmintz/seleniumbase.svg" alt="GitHub stars" title="GitHub stars"></a></p>
+<p><a href="https://pypi.python.org/pypi/seleniumbase"><img src="https://img.shields.io/pypi/v/seleniumbase.svg" alt="pypi"></a> <a href="https://travis-ci.org/mdmintz/SeleniumBase"><img src="https://travis-ci.org/mdmintz/SeleniumBase.svg?branch=master" alt="Build Status"></a> <a href="https://github.com/mdmintz/SeleniumBase/stargazers"><img src="https://img.shields.io/github/stars/mdmintz/seleniumbase.svg" alt="GitHub stars" title="GitHub stars"></a></p>
 
 <p>A reliable solution for fast &amp; simple browser automation and testing.</p>
 
@@ -158,7 +158,8 @@ nosetests my_first_test.py --browser=chrome --with-selenium -s</pre></div>
 
 <div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.find_text(<span class="pl-c1">TEXT_SEGMENT</span>, <span class="pl-c1">CSS_SELECTOR</span>)</pre></div>
 
-<p>The lines were broken apart in the example to demonstrate different methods available to you. The one difference is that find_text() also returns the element contained by the CSS_SELECTOR. find_text() was previously called wait_for_text_visible() ... you can still use the older method name if you wish.)</p>
+<p>The lines were broken apart in the example above to demonstrate different methods available to you. The big difference is that find_text() also returns the WebDriver element contained by CSS_SELECTOR.
+Also, find_text() was previously called wait_for_text_visible(), and you can still use the older method name if you wish.)</p>
 
 <p>If the example is moving too fast for your eyes to see what's going on, there are a few things you can do.
 You can add <code>--demo_mode</code> on the command line, which pauses the browser for about a second (by default) after each action:</p>
@@ -196,8 +197,6 @@ You can add <code>--demo_mode</code> on the command line, which pauses the brows
 <p>Due to high demand, pytest support has been added. You can run the above sample script in pytest like this:</p>
 
 <div class="highlight highlight-source-shell"><pre>py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=chrome -s
-
-py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=phantomjs -s
 
 py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=firefox -s</pre></div>
 

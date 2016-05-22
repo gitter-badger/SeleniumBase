@@ -148,7 +148,9 @@
 
 nosetests my_first_test.py --browser=firefox --with-selenium -s
 
-nosetests my_first_test.py --browser=chrome --with-selenium -s</pre></div>
+nosetests my_first_test.py --browser=chrome --with-selenium -s
+
+nosetests my_first_test.py --browser=phantomjs --with-selenium -s</pre></div>
 
 <p>After the test completes, in the console output you'll see a dot (<code>.</code>) on a new line, representing a passing test. (On test failures you'll see an <code>F</code> instead, and on test errors you'll see an <code>E</code>). It looks more like a moving progress bar when you're running a ton of unit tests side by side. This is part of nosetests. After all tests complete (in this case there is only one), you'll see the "<code>Ran 1 test in ...</code>" line, followed by an "<code>OK</code>" if all nosetests passed.</p>
 
@@ -199,15 +201,19 @@ You can add <code>--demo_mode</code> on the command line, which pauses the brows
 
 <p>Due to high demand, pytest support has been added. You can run the above sample script in pytest like this:</p>
 
-<div class="highlight highlight-source-shell"><pre>py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=chrome -s
+<div class="highlight highlight-source-shell"><pre>py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=firefox -s
 
-py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=firefox -s</pre></div>
+py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=chrome -s
+
+py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=phantomjs -s</pre></div>
 
 <p>(NOTE: The <code>--with-testing_base</code> plugin gives you full logging on test failures for screenshots, page source, and basic test info.)</p>
 
 <p>The <code>--report</code> option gives you a fancy report after your test suite completes. (Requires <code>--with-testing_base</code>) (nosetest-only for now)</p>
 
 <div class="highlight highlight-source-shell"><pre>nosetests my_test_suite.py --with-selenium --with-testing_base --report -s</pre></div>
+
+<p><img src="http://cdn2.hubspot.net/hubfs/100006/images/TestReport4.png" alt="" title="Example Test Report"></p>
 
 <p>(Note: You can add <code>--hide_report</code> to immediately archive the report rather than displaying it after the test suite completes.)</p>
 

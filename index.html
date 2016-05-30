@@ -42,8 +42,7 @@
 </ul>
 
 <h5>
-<a id="trusted-by-the-worlds-most-promising-companies-including-hubspot-jana-and-veracode-learn-how-hubspot-uses-seleniumbase-by-reading-automated-testing-with-selenium" class="anchor" href="#trusted-by-the-worlds-most-promising-companies-including-hubspot-jana-and-veracode-learn-how-hubspot-uses-seleniumbase-by-reading-automated-testing-with-selenium" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><em>(Trusted by the world's most promising companies, including <a href="http://www.hubspot.com/">HubSpot</a>, <a href="http://jana.com/">Jana</a>, and <a href="http://www.veracode.com/">Veracode</a>. Learn how HubSpot uses SeleniumBase by reading: <a href="http://dev.hubspot.com/blog/bid/88880/Automated-Integration-Testing-with-Selenium-at-HubSpot">Automated Testing with Selenium</a>.)</em>
-</h5>
+<a id="to-learn-about-organizations-that-have-used-seleniumbase-for-automation-click-here" class="anchor" href="#to-learn-about-organizations-that-have-used-seleniumbase-for-automation-click-here" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(To learn about organizations that have used SeleniumBase for automation, <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/happy_customers.md">Click Here</a>.)</h5>
 
 <h3>
 <a id="part-i-mac-setup-instructions" class="anchor" href="#part-i-mac-setup-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Part I: MAC SETUP INSTRUCTIONS</h3>
@@ -62,7 +61,7 @@
 <h4>
 <a id="step-0b-get-web-browsers-to-run-automation-on" class="anchor" href="#step-0b-get-web-browsers-to-run-automation-on" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0b:</strong> Get web browsers to run automation on</h4>
 
-<p>If you haven't already, you'll want to <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a>. You can also <a href="https://www.google.com/chrome/browser/desktop/index.html">Download Chrome</a> or <a href="https://download-chromium.appspot.com/">Download Chromium</a> to run automation there.</p>
+<p>If you haven't already, <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a>, and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Download Chrome</a> or <a href="https://download-chromium.appspot.com/">Download Chromium</a>.</p>
 
 <h4>
 <a id="step-0c-get-drivers-for-the-web-browsers-that-require-them" class="anchor" href="#step-0c-get-drivers-for-the-web-browsers-that-require-them" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0c:</strong> Get drivers for the web browsers that require them</h4>
@@ -79,8 +78,9 @@
 
 <ul>
 <li>
-<a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Download Chromedriver</a> and put it in your PATH.</li>
+<a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Download Chromedriver</a> and put it on your PATH.</li>
 <li>OPTIONAL: <a href="https://bitbucket.org/ariya/phantomjs/downloads">Download PhantomJS</a> (only if you want to run headless browser automation)</li>
+<li>OPTIONAL: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48212">Download Edge Driver (Microsoft WebDriver)</a> (Windows 10 only!)</li>
 <li>For everything you download, put those files in your PATH. (<code>Environmental Variables</code> on a Windows machine)</li>
 </ul>
 
@@ -127,7 +127,7 @@
 
     <span class="pl-k">def</span> <span class="pl-en">test_basic</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
         <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">'</span>http://xkcd.com/353/<span class="pl-pds">'</span></span>)
-        <span class="pl-v">self</span>.find_element(<span class="pl-s"><span class="pl-pds">'</span>img[alt="Python"]<span class="pl-pds">'</span></span>)
+        <span class="pl-v">self</span>.assert_element(<span class="pl-s"><span class="pl-pds">'</span>img[alt="Python"]<span class="pl-pds">'</span></span>)
         <span class="pl-v">self</span>.click(<span class="pl-s"><span class="pl-pds">'</span>a[rel="license"]<span class="pl-pds">'</span></span>)
         xkcd_license <span class="pl-k">=</span> <span class="pl-v">self</span>.get_text(<span class="pl-s"><span class="pl-pds">'</span>center<span class="pl-pds">'</span></span>)
         <span class="pl-k">assert</span>(<span class="pl-s"><span class="pl-pds">'</span>reuse any of my drawings<span class="pl-pds">'</span></span> <span class="pl-k">in</span> xkcd_license)
@@ -136,11 +136,11 @@
         caption <span class="pl-k">=</span> image_object.get_attribute(<span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span>)
         <span class="pl-k">assert</span>(<span class="pl-s"><span class="pl-pds">'</span>connections to the server<span class="pl-pds">'</span></span> <span class="pl-k">in</span> caption)
         <span class="pl-v">self</span>.click_link_text(<span class="pl-s"><span class="pl-pds">'</span>Blag<span class="pl-pds">'</span></span>)
-        <span class="pl-v">self</span>.find_text(<span class="pl-s"><span class="pl-pds">'</span>The blag<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>header h2<span class="pl-pds">'</span></span>)
+        <span class="pl-v">self</span>.assert_text(<span class="pl-s"><span class="pl-pds">'</span>The blag<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>header h2<span class="pl-pds">'</span></span>)
         <span class="pl-v">self</span>.update_text(<span class="pl-s"><span class="pl-pds">'</span>input#s<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>Robots!<span class="pl-cce">\n</span><span class="pl-pds">'</span></span>)
-        <span class="pl-v">self</span>.find_text(<span class="pl-s"><span class="pl-pds">'</span>Hooray robots!<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>#content<span class="pl-pds">'</span></span>)
+        <span class="pl-v">self</span>.assert_text(<span class="pl-s"><span class="pl-pds">'</span>Hooray robots!<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>#content<span class="pl-pds">'</span></span>)
         <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">'</span>http://xkcd.com/1319/<span class="pl-pds">'</span></span>)
-        <span class="pl-v">self</span>.find_text(<span class="pl-s"><span class="pl-pds">'</span>Automation<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>div#ctitle<span class="pl-pds">'</span></span>)</pre></div>
+        <span class="pl-v">self</span>.assert_text(<span class="pl-s"><span class="pl-pds">'</span>Automation<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>div#ctitle<span class="pl-pds">'</span></span>)</pre></div>
 
 <p>Here's how to run the example script using various web browsers:</p>
 
@@ -154,17 +154,14 @@ nosetests my_first_test.py --browser=phantomjs --with-selenium -s</pre></div>
 
 <p>After the test completes, in the console output you'll see a dot (<code>.</code>) on a new line, representing a passing test. (On test failures you'll see an <code>F</code> instead, and on test errors you'll see an <code>E</code>). It looks more like a moving progress bar when you're running a ton of unit tests side by side. This is part of nosetests. After all tests complete (in this case there is only one), you'll see the "<code>Ran 1 test in ...</code>" line, followed by an "<code>OK</code>" if all nosetests passed.</p>
 
-<p>(NOTE: The following two lines of code can be simplified...</p>
+<p>NOTE: The following two lines of code can be simplified...</p>
 
 <div class="highlight highlight-source-python"><pre>text <span class="pl-k">=</span> <span class="pl-v">self</span>.get_text(<span class="pl-c1">CSS_SELECTOR</span>)
 <span class="pl-k">assert</span>(<span class="pl-c1">TEXT_SEGMENT</span> <span class="pl-k">in</span> text)</pre></div>
 
 <p>...into this one line:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.find_text(<span class="pl-c1">TEXT_SEGMENT</span>, <span class="pl-c1">CSS_SELECTOR</span>)</pre></div>
-
-<p>This means that <code>self.find_text()</code> and other <code>self.find_*()</code> methods double as an assert statement: If something can't be found, that counts as an assertion error. The lines were broken apart in the example above to demonstrate different methods available to you. The big difference is that find_text() also returns the WebDriver element contained by CSS_SELECTOR.
-Also, find_text() was previously called wait_for_text_visible(), and you can still use the older method name if you wish.)</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.assert_text(<span class="pl-c1">TEXT_SEGMENT</span>, <span class="pl-c1">CSS_SELECTOR</span>)</pre></div>
 
 <p>If the example is moving too fast for your eyes to see what's going on, there are a few things you can do.
 You can add <code>--demo_mode</code> on the command line, which pauses the browser for about a second (by default) after each action:</p>
@@ -259,7 +256,7 @@ If you have Xvfb running in the background, you can add <code>--headless</code> 
 
     <span class="pl-k">def</span> <span class="pl-en">test_find_army_of_robots_on_xkcd_desert_island</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
         <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">"</span>http://xkcd.com/731/<span class="pl-pds">"</span></span>)
-        <span class="pl-v">self</span>.find_element(<span class="pl-s"><span class="pl-pds">"</span>div#ARMY_OF_ROBOTS<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">3</span>)  <span class="pl-c"># This should fail</span></pre></div>
+        <span class="pl-v">self</span>.assert_element(<span class="pl-s"><span class="pl-pds">"</span>div#ARMY_OF_ROBOTS<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">3</span>)  <span class="pl-c"># This should fail</span></pre></div>
 
 <p>Now run it:</p>
 
@@ -321,12 +318,14 @@ If you want to type in special keys, that's easy too. Here's an example:</p>
 
 <div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_element_present(<span class="pl-s"><span class="pl-pds">"</span>div.my_class<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">10</span>)</pre></div>
 
+<p>(NOTE: You can also use: <code>self.assert_element_present(ELEMENT)</code>)</p>
+
 <h4>
 <a id="asserting-visibility-of-an-element-on-a-page-within-some-number-of-seconds" class="anchor" href="#asserting-visibility-of-an-element-on-a-page-within-some-number-of-seconds" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asserting visibility of an element on a page within some number of seconds:</h4>
 
 <div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_element_visible(<span class="pl-s"><span class="pl-pds">"</span>a.my_class<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">5</span>)</pre></div>
 
-<p>(NOTE: The short version of this is <code>self.find_element(ELEMENT)</code>)</p>
+<p>(NOTE: The short versions of this are <code>self.find_element(ELEMENT)</code> and <code>self.assert_element(ELEMENT)</code>. The find_element() version returns the element)</p>
 
 <p>Since the line above returns the element, you can combine that with .click() as shown below:</p>
 
@@ -342,7 +341,7 @@ If you want to type in special keys, that's easy too. Here's an example:</p>
 <div class="highlight highlight-source-python"><pre><span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Make it so!<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>div#trek div.picard div.quotes<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">3</span>)
 <span class="pl-v">self</span>.wait_for_text_visible(<span class="pl-s"><span class="pl-pds">"</span>Tea. Earl Grey. Hot.<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>div#trek div.picard div.quotes<span class="pl-pds">"</span></span>, <span class="pl-v">timeout</span><span class="pl-k">=</span><span class="pl-c1">1</span>)</pre></div>
 
-<p>(NOTE: The short version of this is <code>self.find_text(TEXT, ELEMENT)</code>)</p>
+<p>(NOTE: The short versions of this are <code>self.find_text(TEXT, ELEMENT)</code> and <code>self.assert_text(TEXT, ELEMENT)</code>)</p>
 
 <h4>
 <a id="asserting-anything" class="anchor" href="#asserting-anything" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Asserting Anything</h4>

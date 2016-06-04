@@ -145,13 +145,13 @@
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> examples/
 
-nosetests my_first_test.py --browser=firefox --with-selenium -s
+nosetests my_first_test.py --with-selenium --browser=firefox -s
 
-nosetests my_first_test.py --browser=chrome --with-selenium -s
+nosetests my_first_test.py --with-selenium --browser=chrome -s
 
-nosetests my_first_test.py --browser=phantomjs --with-selenium -s</pre></div>
+nosetests my_first_test.py --with-selenium --browser=phantomjs -s</pre></div>
 
-<p>After the test completes, in the console output you'll see a dot (<code>.</code>) on a new line, representing a passing test. (On test failures you'll see an <code>F</code> instead, and on test errors you'll see an <code>E</code>). It looks more like a moving progress bar when you're running a ton of unit tests side by side. This is part of nosetests. After all tests complete (in this case there is only one), you'll see the "<code>Ran 1 test in ...</code>" line, followed by an "<code>OK</code>" if all nosetests passed.</p>
+<p>After the test completes, in the console output you'll see a dot (<code>.</code>) on a new line, representing a passing test. (On test failures you'll see an <code>F</code> instead, and on test errors you'll see an <code>E</code>). It looks more like a moving progress bar when you're running a ton of unit tests side by side. This is part of nosetests. After all tests complete (in this case there is only one), you'll see the "<code>Ran 1 test in ...</code>" line, followed by an "<code>OK</code>" if all nosetests passed. The <code>--with-selenium</code> option is required for running GUI tests. If no browser is specified, Firefox will become the default. The <code>-s</code> option is optional, and that makes sure that any standard output is printed immediately on the command line when tests have print statements in them, which makes debugging much easier.</p>
 
 <p>NOTE: The following two lines of code can be simplified...</p>
 
@@ -203,15 +203,17 @@ py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testi
 
 py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testing_base --browser=phantomjs -s</pre></div>
 
+<p>(NOTE: If you're using pytest instead nosetests for running your own integration tests outside of the SeleniumBase file path, you'll need a copy of <a href="https://github.com/mdmintz/SeleniumBase/blob/master/conftest.py">conftest.py</a> inside your folder structure because the pytest configuration is defined there locally at runtime.)</p>
+
 <p>(NOTE: The <code>--with-testing_base</code> plugin gives you full logging on test failures for screenshots, page source, and basic test info.)</p>
 
-<p>The <code>--report</code> option gives you a fancy report after your test suite completes. (Requires <code>--with-testing_base</code>) (nosetest-only for now)</p>
+<p>CREATING VISUAL TEST SUITE REPORTS (for nosetest users <em>ONLY</em>): The <code>--report</code> option gives you a fancy report after your test suite completes. (Requires <code>--with-testing_base</code> to also be set when <code>--report</code> is used)</p>
 
 <div class="highlight highlight-source-shell"><pre>nosetests my_test_suite.py --with-selenium --with-testing_base --report -s</pre></div>
 
 <p><img src="http://cdn2.hubspot.net/hubfs/100006/images/TestReport4.png" alt="" title="Example Test Report"></p>
 
-<p>(Note: You can add <code>--hide_report</code> to immediately archive the report rather than displaying it after the test suite completes.)</p>
+<p>(NOTE: You can add <code>--hide_report</code> to immediately archive the report rather than displaying it after the test suite completes. You'll want to use this when running tests remotely because otherwise the test run will hang indefinitely until someone manually exits the report.)</p>
 
 <h4>
 <a id="step-5-complete-the-setup" class="anchor" href="#step-5-complete-the-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 5:</strong> Complete the setup</h4>

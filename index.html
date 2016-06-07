@@ -466,6 +466,29 @@ referral_link <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds
 <span class="pl-v">self</span>.execute_script(<span class="pl-s"><span class="pl-pds">"</span>document.body.innerHTML = <span class="pl-cce">\"</span><span class="pl-c1">%s</span><span class="pl-cce">\"</span><span class="pl-pds">"</span></span> <span class="pl-k">%</span> referral_link)
 <span class="pl-v">self</span>.click(<span class="pl-s"><span class="pl-pds">"</span>a.analytics<span class="pl-pds">"</span></span>)  <span class="pl-c"># Clicks the generated button</span></pre></div>
 
+<h4>
+<a id="using-non-terminating-verifications" class="anchor" href="#using-non-terminating-verifications" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using non-terminating verifications:</h4>
+
+<p>Let's say you want to verify multiple different elements on a web page in a single test, but you don't want the test to fail until you verified several elements at once so that you don't have to rerun the test to find more missing elements on the same page. That's where page checks come in. Here's the example:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> seleniumbase <span class="pl-k">import</span> BaseCase
+
+<span class="pl-k">class</span> <span class="pl-en">MyTestClass</span>(<span class="pl-e">BaseCase</span>):
+
+    <span class="pl-k">def</span> <span class="pl-en">test_non_terminating_checks</span>(<span class="pl-smi"><span class="pl-smi">self</span></span>):
+        <span class="pl-v">self</span>.open(<span class="pl-s"><span class="pl-pds">'</span>http://xkcd.com/993/<span class="pl-pds">'</span></span>)
+        <span class="pl-v">self</span>.wait_for_element(<span class="pl-s"><span class="pl-pds">'</span>#comic<span class="pl-pds">'</span></span>)
+        <span class="pl-v">self</span>.check_assert_element(<span class="pl-s"><span class="pl-pds">'</span>img[alt="Brand Identity"]<span class="pl-pds">'</span></span>)
+        <span class="pl-v">self</span>.check_assert_element(<span class="pl-s"><span class="pl-pds">'</span>img[alt="Rocket Ship"]<span class="pl-pds">'</span></span>)  <span class="pl-c"># Will Fail</span>
+        <span class="pl-v">self</span>.check_assert_element(<span class="pl-s"><span class="pl-pds">'</span>#comicmap<span class="pl-pds">'</span></span>)
+        <span class="pl-v">self</span>.check_assert_text(<span class="pl-s"><span class="pl-pds">'</span>Fake Item<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>#middleContainer<span class="pl-pds">'</span></span>)  <span class="pl-c"># Will Fail</span>
+        <span class="pl-v">self</span>.check_assert_text(<span class="pl-s"><span class="pl-pds">'</span>Random<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>#middleContainer<span class="pl-pds">'</span></span>)
+        <span class="pl-v">self</span>.check_assert_element(<span class="pl-s"><span class="pl-pds">'</span>a[name="Super Fake !!!"]<span class="pl-pds">'</span></span>)  <span class="pl-c"># Will Fail</span>
+        <span class="pl-v">self</span>.process_checks()</pre></div>
+
+<p><code>check_assert_element()</code> and <code>check_assert_text()</code> will save any exceptions that would be raised.
+To flush out all the failed checks into a single exception, make sure to call <code>self.process_checks()</code> at the end of your test method. If your test hits multiple pages, you can call <code>self.process_checks()</code> at the end of all your checks for a single page. This way, the screenshot from your log file will make the location where the checks were made.</p>
+
 <h3>
 <a id="part-iii-more-details" class="anchor" href="#part-iii-more-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Part III: More Details</h3>
 

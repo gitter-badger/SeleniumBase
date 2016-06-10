@@ -41,49 +41,33 @@
 <li>Customizable with <a href="https://github.com/mdmintz/SeleniumBase/blob/master/conftest.py">command-line options</a> and a <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">global configuration file</a>.</li>
 </ul>
 
-<p>(To learn about organizations automating with SeleniumBase, <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/happy_customers.md">Click Here</a>.)</p>
+<p>(To learn about businesses using SeleniumBase, <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/happy_customers.md">Click Here</a>.)</p>
 
 <h3>
-<a id="part-i-mac-setup-instructions" class="anchor" href="#part-i-mac-setup-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Part I: MAC SETUP INSTRUCTIONS</h3>
+<a id="part-i-setup-instructions-for-mac-ubuntu-and-windows" class="anchor" href="#part-i-setup-instructions-for-mac-ubuntu-and-windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Part I: Setup Instructions for Mac, Ubuntu, and Windows</h3>
+
+<p>(<strong>Debian Linux users</strong>: Run <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/linux/Linuxfile.sh">Linuxfile.sh</a> to setup your Debian Linux machine.)</p>
+
+<p>(<strong>Docker users</strong>: See the <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/docker/ReadMe.md">Docker ReadMe</a> for running on a Docker machine.)</p>
 
 <h4>
-<a id="windows-users-ignore-brew-install-which-is-mac-only-instead-download-the-files-you-need-and-put-them-on-your-path" class="anchor" href="#windows-users-ignore-brew-install-which-is-mac-only-instead-download-the-files-you-need-and-put-them-on-your-path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(WINDOWS users: Ignore "brew install", which is MAC-only. Instead, download the files you need and put them on your <a href="http://java.com/en/download/help/path.xml">PATH</a>.)</h4>
+<a id="step-0-install-pythonpip-web-browsers-and-web-drivers" class="anchor" href="#step-0-install-pythonpip-web-browsers-and-web-drivers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0:</strong> Install Python/pip, Web Browsers, and Web Drivers</h4>
 
-<h4>
-<a id="docker-users-see-the-docker-readme" class="anchor" href="#docker-users-see-the-docker-readme" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(DOCKER users: See the <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/docker/ReadMe.md">Docker ReadMe</a>)</h4>
-
-<h4>
-<a id="step-0a-get-basic-requirements" class="anchor" href="#step-0a-get-basic-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0a:</strong> Get basic requirements</h4>
-
-<p>If you don't already have <code>python</code>, <code>pip</code>, <code>git</code>, and either <code>virtualenv</code> or <code>virtualenvwrapper</code> installed and accessible from your terminal (command prompt), you'll need to <strong><a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">follow these instructions</a></strong>.</p>
-
-<h4>
-<a id="step-0b-get-web-browsers-to-run-automation-on" class="anchor" href="#step-0b-get-web-browsers-to-run-automation-on" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0b:</strong> Get web browsers to run automation on</h4>
-
-<p>If you haven't already, <a href="https://www.mozilla.org/en-US/firefox/new/">Download Firefox</a>, and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Download Chrome</a> or <a href="https://download-chromium.appspot.com/">Download Chromium</a>.</p>
-
-<h4>
-<a id="step-0c-get-drivers-for-the-web-browsers-that-require-them" class="anchor" href="#step-0c-get-drivers-for-the-web-browsers-that-require-them" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 0c:</strong> Get drivers for the web browsers that require them</h4>
-
-<p>If you want to run automation on browsers other than Firefox (such as Chrome), you'll need to download <a href="https://sites.google.com/a/chromium.org/chromedriver/">Chromedriver</a> and <a href="http://phantomjs.org/">PhantomJS</a> separately. (Firefox drivers are already included with Selenium by default, which makes life a bit easier.)</p>
-
-<p>On a Mac you can install those drivers more easily by using <code>brew</code> (aka <code>homebrew</code>), but you have to install that first. <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">Brew installation instructions are here</a>.</p>
+<ul>
+<li><p>To install <code>python</code>, <code>pip</code>, <code>git</code>, and either <code>virtualenv</code> or <code>virtualenvwrapper</code>, <strong><a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">follow these instructions</a></strong>.</p></li>
+<li><p>Download web browsers such as <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> or <a href="https://download-chromium.appspot.com/">Chromium</a>.</p></li>
+<li><p>If you want to run automation on browsers other than Firefox, you'll need to download <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Chromedriver</a>, <a href="http://phantomjs.org/download.html">PhantomJS</a>, and <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48212">Edge Driver (Microsoft WebDriver)</a> separately. (Firefox drivers come with Selenium by default.)</p></li>
+<li><p>For everything you download (such as <code>pip</code> and <code>Chromedriver</code>) make sure those files get on your system <a href="http://java.com/en/download/help/path.xml">PATH</a>. (<code>Environmental Variables</code> on a Windows machine)</p></li>
+<li><p>On a Mac, you can install drivers more easily by using <code>brew</code> (aka <code>homebrew</code>), but you have to install that first. <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">Brew installation instructions are here</a>.</p></li>
+</ul>
 
 <p>Mac:</p>
 
 <div class="highlight highlight-source-shell"><pre>brew install chromedriver phantomjs</pre></div>
 
-<p>Windows:</p>
-
 <ul>
-<li>
-<a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Download Chromedriver</a> and put it on your PATH.</li>
-<li>OPTIONAL: <a href="https://bitbucket.org/ariya/phantomjs/downloads">Download PhantomJS</a> (only if you want to run headless browser automation)</li>
-<li>OPTIONAL: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48212">Download Edge Driver (Microsoft WebDriver)</a> (Windows 10 only!)</li>
-<li>For everything you download, put those files in your PATH. (<code>Environmental Variables</code> on a Windows machine)</li>
+<li>To verify that the web drivers are working, <strong><a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/verify_webdriver.md">follow these instructions</a></strong>.</li>
 </ul>
-
-<p>If you want to verify that you successfully installed the web drivers, <strong><a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/verify_webdriver.md">follow these instructions</a></strong>.</p>
 
 <h4>
 <a id="step-1-clone-seleniumbase-to-your-local-machine" class="anchor" href="#step-1-clone-seleniumbase-to-your-local-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 1:</strong> Clone SeleniumBase to your local machine</h4>
@@ -101,7 +85,7 @@
 <h4>
 <a id="step-3-install-seleniumbase" class="anchor" href="#step-3-install-seleniumbase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Step 3:</strong> Install SeleniumBase</h4>
 
-<p>Since <a href="https://pypi.python.org/pypi/seleniumbase">SeleniumBase is in Pypi</a>, you can install it like this:</p>
+<p>Since <a href="https://pypi.python.org/pypi/seleniumbase">SeleniumBase is in Pypi</a>, you can install it like this: (Using <code>"sudo"</code> may be required.)</p>
 
 <div class="highlight highlight-source-shell"><pre>pip install seleniumbase</pre></div>
 
@@ -211,7 +195,7 @@ py.<span class="pl-c1">test</span> my_first_test.py --with-selenium --with-testi
 
 <div class="highlight highlight-source-shell"><pre>nosetests my_test_suite.py --with-selenium --with-testing_base --report -s</pre></div>
 
-<p><img src="http://cdn2.hubspot.net/hubfs/100006/images/Test_Report.png" alt="" title="Example Test Report"></p>
+<p><img src="http://cdn2.hubspot.net/hubfs/100006/images/Test_Report_2.png" alt="" title="Example Test Report"></p>
 
 <p>(NOTE: You can add <code>--hide_report</code> to immediately archive the report rather than displaying it after the test suite completes. You'll want to use this when running tests remotely because otherwise the test run will hang indefinitely until someone manually exits the report.)</p>
 
@@ -561,7 +545,7 @@ email_manager <span class="pl-k">=</span> EmailManager(<span class="pl-s"><span 
 <p>You may also be wondering when you would use the Delayed Data Manager. Here's one example: If you scheduled an email to go out 12 hours from now and you wanted to check that the email gets received (but you don't want the Selenium test of a Jenkins job to sit idle for 12 hours) you can store the email credentials as a unique time-stamp for the email subject in the DB (along with a time for when it's safe for the email to be searched for) and then a later-running test can do the checking after the right amount of time has passed.</p>
 
 <p>Congratulations! If you've made it this far, it means you have a pretty good idea about how to move forward!
-Feel free to check out other exciting open source projects on GitHub:
+Feel free to check out these other exciting open source projects on GitHub by some smart people I know:
 <a href="https://github.com/hubspot">https://github.com/hubspot</a></p>
 
 <p>Happy Automating!</p>
@@ -571,7 +555,7 @@ Feel free to check out other exciting open source projects on GitHub:
 <h3>
 <a id="legal-disclaimer" class="anchor" href="#legal-disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Legal Disclaimer</h3>
 
-<p>Automation is a powerful thing. It allows you to take full control of web browsers and do almost anything that a human could do, but faster. It can be used for both good and evil. With great power comes great responsibility. You are fully responsible for how you use this framework and the automation that you create. You may also want to see a professional when it comes to setting up your automation environment if you require assistance.</p>
+<p>Automation is a powerful thing. It allows you to take full control of web browsers and do almost anything that a human could do, but faster. It can be used for both good and evil. With great power comes great responsibility. You are fully responsible for how you use this platform and the automation that you create.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/mdmintz/SeleniumBase">SeleniumBase</a> is maintained by <a href="https://github.com/mdmintz">mdmintz</a>.</span>

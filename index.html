@@ -55,7 +55,12 @@
 
 <ul>
 <li><p>To install <code>python</code>, <code>pip</code>, <code>git</code>, and either <code>virtualenv</code> or <code>virtualenvwrapper</code>, <strong><a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">follow these instructions</a></strong>.</p></li>
-<li><p>Download web browsers such as <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> or <a href="https://download-chromium.appspot.com/">Chromium</a>.</p></li>
+<li><p>Download web browsers such as <a href="https://ftp.mozilla.org/pub/firefox/releases/46.0.1/">Firefox (use v46.*, v47.0 is buggy)</a>, and either <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> or <a href="https://download-chromium.appspot.com/">Chromium</a>.</p></li>
+</ul>
+
+<p>(NOTE: Firefox 47.0 is currenly experiencing issues with Selenium. <a href="https://ftp.mozilla.org/pub/firefox/releases/46.0.1/">Get Firefox 46.* instead</a>. For more information regarding this, <a href="http://stackoverflow.com/questions/37693106/selenium-2-53-not-working-on-firefox-47">read this post</a> from Stack Overflow. Then <a href="https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver">read about "Marionette"</a>, which is the future of FirefoxDriver.)</p>
+
+<ul>
 <li><p>If you want to run automation on browsers other than Firefox, you'll need to download <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Chromedriver</a>, <a href="http://phantomjs.org/download.html">PhantomJS</a>, and <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48212">Edge Driver (Microsoft WebDriver)</a> separately. (Firefox drivers come with Selenium by default.)</p></li>
 <li><p>For everything you download (such as <code>pip</code> and <code>Chromedriver</code>) make sure those files get on your system <a href="http://java.com/en/download/help/path.xml">PATH</a>. (<code>Environmental Variables</code> on a Windows machine)</p></li>
 <li><p>On a Mac, you can install drivers more easily by using <code>brew</code> (aka <code>homebrew</code>), but you have to install that first. <a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">Brew installation instructions are here</a>.</p></li>

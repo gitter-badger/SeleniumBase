@@ -36,7 +36,7 @@
 <li>
 <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/fixtures/base_case.py">A Python library</a> for quickly building <a href="https://github.com/mdmintz/SeleniumBase/blob/master/examples/my_first_test.py">reliable WebDriver scripts</a>.</li>
 <li>
-<a href="https://github.com/mdmintz/SeleniumBase/tree/master/seleniumbase/plugins">Plugins</a> for logging <a href="https://github.com/mdmintz/SeleniumBase/tree/master/examples/logs_for_test_fail">data and screenshots</a> automatically.</li>
+<a href="https://github.com/mdmintz/SeleniumBase/tree/master/seleniumbase/plugins">Plugins</a> for logging <a href="https://github.com/mdmintz/SeleniumBase/tree/master/examples/example_logs">data and screenshots</a> automatically.</li>
 <li>Easy integration with <a href="https://github.com/mdmintz/SeleniumBase/tree/master/integrations/selenium_grid">Selenium Grid</a>, <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/core/testcase_manager.py">MySQL</a>, <a href="https://github.com/mdmintz/SeleniumBase/blob/master/integrations/docker/ReadMe.md">Docker</a>, <a href="https://github.com/mdmintz/SeleniumBase/tree/master/integrations/google_cloud/ReadMe.md">Jenkins on Google Cloud</a>, and <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/plugins/s3_logging_plugin.py">Amazon S3</a>.</li>
 <li>Customizable with <a href="https://github.com/mdmintz/SeleniumBase/blob/master/conftest.py">command-line options</a> and a <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">global configuration file</a>.</li>
 </ul>
@@ -55,10 +55,10 @@
 
 <ul>
 <li><p>To install <code>python</code>, <code>pip</code>, <code>git</code>, and either <code>virtualenv</code> or <code>virtualenvwrapper</code>, <strong><a href="https://github.com/mdmintz/SeleniumBase/blob/master/help_docs/requirements_installation.md">follow these instructions</a></strong>.</p></li>
-<li><p>Download web browsers such as <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> (or <a href="https://download-chromium.appspot.com/">Chromium</a>) and <a href="https://ftp.mozilla.org/pub/firefox/releases/46.0.1/">Firefox (use v46.* because v47.0 is buggy)</a>.</p></li>
+<li><p>Download web browsers such as <a href="https://www.google.com/chrome/browser/desktop/index.html">Chrome</a> (or <a href="https://download-chromium.appspot.com/">Chromium</a>) and also <a href="https://ftp.mozilla.org/pub/firefox/releases/46.0.1/">Firefox v46.*</a> (or <a href="https://www.mozilla.org/en-US/firefox/organizations/">Firefox ESR</a>) because Firefox v47.0 is buggy. (If you go with Firefox 46.*, make sure to turn off auto-updates or else you'll be back at v47 quickly!)</p></li>
 </ul>
 
-<p>(NOTE: Firefox 47.0 is currenly experiencing issues with Selenium. <a href="https://ftp.mozilla.org/pub/firefox/releases/46.0.1/">Get Firefox 46.* instead</a>. For more information regarding this, <a href="http://stackoverflow.com/questions/37693106/selenium-2-53-not-working-on-firefox-47">read this post</a> from Stack Overflow. There's a <a href="https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver">new version of Firefox driver</a> coming soon.</p>
+<p>(NOTE: Firefox 47.0 is currenly experiencing issues with Selenium. <a href="https://ftp.mozilla.org/pub/firefox/releases/46.0.1/">Get Firefox 46.*</a> instead, or you can <a href="https://www.mozilla.org/en-US/firefox/organizations/">Get Firefox ESR</a>. (If you go with Firefox 46.*, make sure to turn off auto-updates or else you'll be back at v47 quickly!) For more information regarding this, <a href="http://stackoverflow.com/questions/37693106/selenium-2-53-not-working-on-firefox-47">read this post</a> from Stack Overflow. There's a <a href="https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver">new version of Firefox driver</a> coming soon.</p>
 
 <ul>
 <li><p>If you want to run automation on browsers other than Firefox, you'll need to download <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">Chromedriver</a>, <a href="http://phantomjs.org/download.html">PhantomJS</a>, and <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48212">Edge Driver (Microsoft WebDriver)</a> separately. (Firefox drivers come with Selenium by default.)</p></li>
@@ -252,7 +252,7 @@ If you have Xvfb running in the background, you can add <code>--headless</code> 
 
 <div class="highlight highlight-source-shell"><pre>nosetests test_fail.py --browser=chrome --with-selenium --with-testing_base -s</pre></div>
 
-<p>You'll notice that a logs folder was created to hold information about the failing test, and screenshots. Take a look at what you get. Remember, this data can be saved in your MySQL DB and in S3 if you include the necessary plugins in your run command (and if you set up the neccessary connections properly). For future test runs, past test results will get stored in the archived_logs folder.</p>
+<p>You'll notice that a logs folder, "latest_logs", was created to hold information about the failing test, and screenshots. Take a look at what you get. Remember, this data can be saved in your MySQL DB and in S3 if you include the necessary plugins in your run command (and if you set up the neccessary connections properly). For future test runs, past test results will get stored in the archived_logs folder if you have ARCHIVE_EXISTING_LOGS set to True in <a href="https://github.com/mdmintz/SeleniumBase/blob/master/seleniumbase/config/settings.py">settings.py</a>.</p>
 
 <p>Have you made it this far? Congratulations!!! Now you're ready to dive in at full speed!</p>
 
